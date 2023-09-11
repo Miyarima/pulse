@@ -1,16 +1,10 @@
-const one = "hello";
-const two = "hello";
+"use strict";
 
-if (one === two) {
-    console.log("hello");
-}
+const checkCredentials = (user, pass) => {
+    if (user === "test@test.com" && pass === "ligma") return true;
+    return false;
+};
 
-// const bar = () => {
-//     console.log("hello");
-// };
-
-function bar() {
-    console.log("hello");
-}
-
-bar();
+module.exports = {
+    checkCredentials,
+};

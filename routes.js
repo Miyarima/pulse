@@ -2,7 +2,7 @@
 
 const express = require("express");
 const router = express.Router();
-// const utils = require('./src/utils.js');
+const utils = require("./src/utils.js");
 
 router.get("/", (req, res) => {
     let data = {
@@ -16,17 +16,30 @@ router.get("/", (req, res) => {
 router.get("/login", (req, res) => {
     let data = {
         title: "Pulse | Login",
+        login: "",
+        user: "",
     };
 
     res.render("login.ejs", data);
 });
 
 router.post("/login", (req, res) => {
-    let data = req.params;
+    let user = req.body.user;
+    let password = req.body.pass;
 
-    console.log(data);
+    if (utils.checkCredentials(user, password)) {
+        res.redirect("/");
+    }
 
-    res.redirect("/");
+    console.log("Wrong credentials");
+
+    let data = {
+        title: "Pulse | Login",
+        login: "wrong",
+        user: user,
+    };
+
+    res.render("login.ejs", data);
 });
 
 module.exports = router;

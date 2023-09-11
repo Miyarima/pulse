@@ -7,18 +7,30 @@
         Login
     </h1>
     <form class="flex flex-col py-2 m-10 w-80" method="post">
+        <% if (login === "wrong") { %>
+        <p class="text-sm text-center text-red-600">
+            Either the username or the password is wrong
+        </p>
+        <% }; %> <% if (user === "") { %>
         <input
             class="my-6 p-1 border-b-2 border-gray-400 focus:outline-none"
-            id="user"
             type="text"
-            name="id"
+            name="user"
             value=""
             placeholder="Username"
         />
+        <% } else { %>
+        <input
+            class="my-6 p-1 border-b-2 border-gray-400 focus:outline-none"
+            type="text"
+            name="user"
+            value="<%= user %>"
+            placeholder="Username"
+        />
+        <% }; %>
 
         <input
             class="my-6 p-1 border-b-2 border-gray-400 focus:outline-none"
-            id="pass"
             type="password"
             name="pass"
             value=""
