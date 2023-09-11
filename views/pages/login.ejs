@@ -1,0 +1,37 @@
+<%- include("./../partials/login-header.ejs") %>
+
+<div class="bg-white rounded-xl">
+    <h1
+        class="text-5xl text-center my-5 py-4 font-sans border-b-2 border-gray-100"
+    >
+        Login
+    </h1>
+    <form class="flex flex-col py-2 m-10 w-80" method="post">
+        <input
+            class="my-6 p-1 border-b-2 border-gray-400 focus:outline-none"
+            id="user"
+            type="text"
+            name="id"
+            value=""
+            placeholder="Username"
+        />
+
+        <input
+            class="my-6 p-1 border-b-2 border-gray-400 focus:outline-none"
+            id="pass"
+            type="password"
+            name="pass"
+            value=""
+            placeholder="Password"
+        />
+
+        <input
+            class="bg-sky-400 rounded-full px-10 my-6 py-2 text-white font-bold border-2 border-sky-400 hover:bg-white hover:text-sky-400 hover:cursor-pointer font-sans"
+            type="submit"
+            name="doit"
+            value="Login"
+        />
+    </form>
+</div>
+
+<%- include("./../partials/login-footer.ejs") %>
