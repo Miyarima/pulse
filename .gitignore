@@ -1,0 +1,9 @@
+node_modules/
+package-lock.json
+
+pulse.sqlite3
+
+.env
+
+*.log
+*.tmp

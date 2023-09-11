@@ -1,0 +1,24 @@
+{
+	"name": "pulse",
+	"version": "1.0.0",
+	"description": "Team report tool for a manager",
+	"main": "index.js",
+	"scripts": {
+		"start": "nodemon index.js",
+		"tail": "npx tailwindcss -i ./src/input.css -o ./public/style/output.css --watch",
+		"lint": "npx eslint src/** index.js --fix"
+	},
+	"author": "Jonathan Göransson",
+	"license": "ISC",
+	"dependencies": {
+		"ejs": "^3.1.9",
+		"express": "^4.18.2",
+		"knex": "^2.5.1",
+		"nodemon": "^3.0.1",
+		"sqlite3": "^5.1.6"
+	},
+	"devDependencies": {
+		"eslint": "^8.48.0",
+		"tailwindcss": "^3.3.3"
+	}
+}
