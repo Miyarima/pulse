@@ -3,17 +3,14 @@
 const express = require("express");
 const router = express.Router();
 const utils = require("./src/utils.js");
+// const users = require("./db/users.js");
 
-router.get("/", (req, res) => {
-    let data = {
-        title: "Index",
-        today: new Date(),
-    };
+// const bcrypt = require("bcrypt");
+// const password = "password";
+// const hash = await bcrypt.hash(password, 10);
+// console.log(hash);
 
-    res.render("index.ejs", data);
-});
-
-router.get("/login", (req, res) => {
+router.get("/", async (req, res) => {
     let data = {
         title: "Pulse | Login",
         login: "",
@@ -23,23 +20,29 @@ router.get("/login", (req, res) => {
     res.render("login.ejs", data);
 });
 
-router.post("/login", (req, res) => {
+router.post("/", async (req, res) => {
     let user = req.body.user;
     let password = req.body.pass;
 
-    if (utils.checkCredentials(user, password)) {
-        res.redirect("/");
+    const checked = await utils.checkCredentials(user, password);
+
+    if (checked) {
+        res.redirect("/dashboard");
     }
 
-    console.log("Wrong credentials");
-
-    let data = {
+    res.render("login.ejs", {
         title: "Pulse | Login",
         login: "wrong",
         user: user,
+    });
+});
+
+router.get("/dashboard", (req, res) => {
+    let data = {
+        title: "Index",
     };
 
-    res.render("login.ejs", data);
+    res.render("index.ejs", data);
 });
 
 module.exports = router;

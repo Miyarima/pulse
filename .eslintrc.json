@@ -9,36 +9,12 @@
         "ecmaVersion": "latest"
     },
     "rules": {
-        "indent": [
-            "error",
-            4
-        ],
-        "linebreak-style": [
-            "error",
-            "unix"
-        ],
-        "quotes": [
-            "warn",
-            "double"
-        ],
-        "semi": [
-            "warn",
-            "always"
-        ],
-        "eqeqeq": [
-            "warn"
-        ],
-        "padded-blocks": [
-            "warn",
-            "never"
-        ],
-        "space-before-blocks": [
-            "warn",
-            "always"
-        ],
-        "space-before-function-paren": [
-            "warn",
-            "never"
-        ]
+        "indent": ["error", 4],
+        "linebreak-style": ["error", "unix"],
+        "quotes": ["warn", "double"],
+        "semi": ["warn", "always"],
+        "eqeqeq": ["warn"],
+        "padded-blocks": ["warn", "never"],
+        "space-before-blocks": ["warn", "always"]
     }
 }
