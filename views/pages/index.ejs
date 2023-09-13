@@ -1,24 +1,108 @@
 <%- include("./../partials/header.ejs") %>
-
-<div
-    class="shadow-xl bg-gradient-to-r from-white from-80% to-green-500 to-90% p-5 rounded-lg my-5 font-mono text-lg"
->
-    <h1 class="my-1 text-2xl font-bold font-mono">Jonathan</h1>
-    <h2 class="my-1 font-bold">Pulse-status</h2>
-</div>
-
-<div
-    class="shadow-xl bg-gradient-to-r from-white from-80% to-yellow-400 to-90% p-5 rounded-lg my-5 font-mono text-lg"
->
-    <h1 class="my-1 text-2xl font-bold font-mono">Marcus</h1>
-    <h2 class="my-1 font-bold">Försenad</h2>
-</div>
-
-<div
-    class="shadow-xl bg-gradient-to-r from-white from-80% to-red-500 to-90% p-5 rounded-lg my-5 font-mono text-lg"
->
-    <h1 class="my-1 text-2xl font-bold font-mono">Leo</h1>
-    <h2 class="my-1 font-bold">Dropped</h2>
+<div class="p-4">
+    <div class="grid grid-cols-3 gap-4 mb-14">
+        <div class="flex items-center h-24">
+            <p class="text-5xl font-sans font-semibold text-gray-700">
+                Reports
+            </p>
+        </div>
+        <div class="h-24"></div>
+        <div class="flex items-center justify-end h-24">
+            <a class="my-6 py-2 px-4 hover:cursor-pointer hover:animate-spin">
+                <img src="/img/reload.png" class="h-6" alt="reload page" />
+            </a>
+        </div>
+    </div>
+    <div class="grid gap-4 mb-4">
+        <div class="grid grid-cols-5 gap-4 items-center h-10 text-gray-500">
+            <p class="px-4 text-2xl">#</p>
+            <p class="px-4 text-2xl">Namn</p>
+            <p class="px-4 text-2xl">Datum</p>
+            <p class="px-4 text-2xl">Projekt</p>
+            <p class="px-4 text-2xl">Status</p>
+        </div>
+        <div
+            class="grid grid-cols-5 gap-4 items-center rounded bg-white text-gray-500 h-14 opacity-60"
+        >
+            <p class="px-4 text-xl">1</p>
+            <p class="px-4 text-xl">Jonathan</p>
+            <p class="px-4 text-xl">2023-09-13</p>
+            <p class="px-4 text-xl">Aurora</p>
+            <p class="px-4 text-xl">Read</p>
+        </div>
+        <div
+            class="grid grid-cols-5 gap-4 items-center rounded bg-white text-gray-500 h-14 drop-shadow-md"
+        >
+            <p class="px-4 text-xl">2</p>
+            <p class="px-4 text-xl">Jonathan</p>
+            <p class="px-4 text-xl">2023-09-13</p>
+            <p class="px-4 text-xl">Echo Lake</p>
+            <p class="px-4 text-xl">Unread</p>
+        </div>
+        <div
+            class="grid grid-cols-5 gap-4 items-center rounded bg-white text-gray-500 h-14 drop-shadow-md"
+        >
+            <p class="px-4 text-xl">3</p>
+            <p class="px-4 text-xl">Jonathan</p>
+            <p class="px-4 text-xl">2023-09-13</p>
+            <p class="px-4 text-xl">Echo Lake</p>
+            <p class="px-4 text-xl">Unread</p>
+        </div>
+        <div
+            class="grid grid-cols-5 gap-4 items-center rounded bg-white text-gray-500 h-14 opacity-60"
+        >
+            <p class="px-4 text-xl">4</p>
+            <p class="px-4 text-xl">Jonathan</p>
+            <p class="px-4 text-xl">2023-09-13</p>
+            <p class="px-4 text-xl">Echo Lake</p>
+            <p class="px-4 text-xl">Read</p>
+        </div>
+        <div
+            class="grid grid-cols-5 gap-4 items-center rounded bg-white text-gray-500 h-14 drop-shadow-md"
+        >
+            <p class="px-4 text-xl">5</p>
+            <p class="px-4 text-xl">Jonathan</p>
+            <p class="px-4 text-xl">2023-09-13</p>
+            <p class="px-4 text-xl">Aurora</p>
+            <p class="px-4 text-xl">Unread</p>
+        </div>
+        <div
+            class="grid grid-cols-5 gap-4 items-center rounded bg-white text-gray-500 h-14 opacity-60"
+        >
+            <p class="px-4 text-xl">6</p>
+            <p class="px-4 text-xl">Jonathan</p>
+            <p class="px-4 text-xl">2023-09-13</p>
+            <p class="px-4 text-xl">Echo Lake</p>
+            <p class="px-4 text-xl">Read</p>
+        </div>
+        <div
+            class="grid grid-cols-5 gap-4 items-center rounded bg-white text-gray-500 h-14 drop-shadow-md"
+        >
+            <p class="px-4 text-xl">7</p>
+            <p class="px-4 text-xl">Jonathan</p>
+            <p class="px-4 text-xl">2023-09-13</p>
+            <p class="px-4 text-xl">Aurora</p>
+            <p class="px-4 text-xl">Unread</p>
+        </div>
+        <div
+            class="grid grid-cols-5 gap-4 items-center rounded bg-white text-gray-500 h-14 drop-shadow-md"
+        >
+            <p class="px-4 text-xl">8</p>
+            <p class="px-4 text-xl">Jonathan</p>
+            <p class="px-4 text-xl">2023-09-13</p>
+            <p class="px-4 text-xl">Aurora</p>
+            <p class="px-4 text-xl">Unread</p>
+        </div>
+        <div
+            class="grid grid-cols-5 gap-4 items-center rounded bg-white text-gray-500 h-14 drop-shadow-md"
+        >
+            <p class="px-4 text-xl">9</p>
+            <p class="px-4 text-xl">Jonathan</p>
+            <p class="px-4 text-xl">2023-09-13</p>
+            <p class="px-4 text-xl">Aurora</p>
+            <p class="px-4 text-xl">Unread</p>
+        </div>
+    </div>
 </div>
 
 <%- include("./../partials/footer.ejs") %>

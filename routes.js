@@ -27,7 +27,7 @@ router.post("/", async (req, res) => {
     const checked = await utils.checkCredentials(user, password);
 
     if (checked) {
-        res.redirect("/dashboard");
+        return res.redirect("/dashboard");
     }
 
     res.render("login.ejs", {
