@@ -45,4 +45,10 @@ router.get("/dashboard", (req, res) => {
     res.render("index.ejs", data);
 });
 
+router.use((req, res) => {
+    res.status(404).render("404.ejs", {
+        title: "Pulse | Page not Found",
+    });
+});
+
 module.exports = router;
