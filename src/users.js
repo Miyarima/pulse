@@ -2,9 +2,9 @@
 
 const knex = require("../db/knex.js");
 
-// function createUser(user) {
-//     return knex("users").insert(user);
-// }
+function createUser(user) {
+    return knex("users").insert(user);
+}
 
 // Returns all users
 function getAllUsers() {
@@ -27,4 +27,5 @@ function getUser(email) {
 module.exports = {
     getAllUsers,
     getUser,
+    createUser,
 };
