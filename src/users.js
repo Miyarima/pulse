@@ -1,4 +1,4 @@
-const knex = require("./knex.js");
+const knex = require("../db/knex.js");
 
 function createUser(user) {
     return knex("users").insert(user);

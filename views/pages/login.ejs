@@ -1,19 +1,19 @@
 <%- include("./../partials/login-header.ejs") %>
 
-<div class="bg-white rounded-xl">
+<div class="rounded-xl bg-white">
     <h1
-        class="text-5xl text-center my-5 py-4 font-sans font-bold border-b-2 border-gray-100 text-sky-600/75"
+        class="my-5 border-b-2 border-gray-100 py-4 text-center font-sans text-5xl font-bold text-sky-600/75"
     >
         Pulse
     </h1>
-    <form class="flex flex-col py-2 m-10 w-80" method="post">
+    <form class="m-10 flex w-80 flex-col py-2" method="post">
         <% if (login === "wrong") { %>
-        <p class="text-sm text-center text-red-600">
+        <p class="text-center text-sm text-red-600">
             Either the username or the password is wrong
         </p>
         <% }; %> <% if (user === "") { %>
         <input
-            class="my-6 p-1 border-b-2 border-gray-400 focus:outline-none"
+            class="my-6 border-b-2 border-gray-400 p-1 focus:outline-none"
             type="text"
             name="user"
             value=""
@@ -22,7 +22,7 @@
         />
         <% } else { %>
         <input
-            class="my-6 p-1 border-b-2 border-gray-400 focus:outline-none"
+            class="my-6 border-b-2 border-gray-400 p-1 focus:outline-none"
             type="text"
             name="user"
             value="<%= user %>"
@@ -32,7 +32,7 @@
         <% }; %>
 
         <input
-            class="my-6 p-1 border-b-2 border-gray-400 focus:outline-none"
+            class="my-6 border-b-2 border-gray-400 p-1 focus:outline-none"
             type="password"
             name="pass"
             value=""
@@ -41,7 +41,7 @@
         />
 
         <input
-            class="bg-sky-400 rounded-full px-10 my-6 py-2 text-white font-bold border-2 border-sky-400 hover:bg-white hover:text-sky-400 hover:cursor-pointer font-sans"
+            class="my-6 rounded-full border-2 border-sky-400 bg-sky-400 px-10 py-2 font-sans font-bold text-white hover:cursor-pointer hover:bg-white hover:text-sky-400"
             type="submit"
             name="doit"
             value="Login"

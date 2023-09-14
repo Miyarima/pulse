@@ -1,7 +1,7 @@
 "use strict";
 
 const bcrypt = require("bcrypt");
-const users = require("../db/users.js");
+const users = require("./users.js");
 
 // If the user exsist and the password is correct, true will be returned
 const checkCredentials = async (user, pass) => {
