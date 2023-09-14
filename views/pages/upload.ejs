@@ -37,6 +37,7 @@
                     class="hidden"
                     name="csvFile"
                     accept=".csv"
+                    required
                 />
             </label>
             <input
@@ -47,22 +48,23 @@
             />
         </form>
     </div>
-    <% if (upload !== "") { %>
-    <div
-        id="toast-bottom-right"
-        class="space-x fixed bottom-5 right-5 flex w-full max-w-xs items-center space-x-4 divide-x divide-gray-200 rounded-lg bg-white p-4 text-gray-500 shadow"
-        role="alert"
-    >
-        <img
-            src="/img/pulse-white.png"
-            class="mr-3 h-12 rounded-full bg-sky-400 text-white"
-            alt="pulse Logo"
-        />
-        <div class="pl-4 text-sm font-normal">
-            You have uploaded <%= upload %> new users
+    <% if (upload !== "") { %> <% if (upload === "failed") { %>
+    <div class="mb-4 grid gap-4">
+        <div class="flex h-14 justify-center gap-4 text-red-400">
+            <p class="px-4 text-xl">
+                Something went wrong and nothing has been uploaded
+            </p>
         </div>
     </div>
-    <% }; %>
+    <% } else { %>
+    <div class="mb-4 grid gap-4">
+        <div class="flex h-14 justify-center gap-4 text-gray-500">
+            <p class="px-4 text-xl">
+                You have successfully uploaded <%= upload %> new users
+            </p>
+        </div>
+    </div>
+    <% }; %> <% }; %>
 </div>
 
 <%- include("./../partials/footer.ejs") %>

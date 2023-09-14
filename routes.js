@@ -46,7 +46,10 @@ router.post(
     upload.single("csvFile"),
     (req, res) => {
         if (!req.file) {
-            return res.status(400).send("No file uploaded.");
+            return res.render("upload.ejs", {
+                title: "Upload users",
+                upload: "failed",
+            });
         }
 
         const csvFilePath = req.file.path;
