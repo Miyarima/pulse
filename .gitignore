@@ -3,6 +3,8 @@ package-lock.json
 
 pulse.sqlite3
 
+uploads/*
+
 .env
 
 *.log

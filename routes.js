@@ -4,12 +4,10 @@ const express = require("express");
 const router = express.Router();
 const loginAuth = require("./src/loginAuth.js");
 const cookieJwtAuth = require("./middleware/cookieJwtAuth.js");
-// const users = require("./db/users.js");
-
-// const bcrypt = require("bcrypt");
-// const password = "password";
-// const hash = await bcrypt.hash(password, 10);
-// console.log(hash);
+const multer = require("multer");
+const csv = require("csv-parser");
+const fs = require("fs");
+const upload = multer({ dest: "uploads/" });
 
 router.get("/", async (req, res) => {
     let data = {
@@ -27,7 +25,7 @@ router.post("/", async (req, res) => {
 
 router.get("/dashboard", cookieJwtAuth("admin"), (req, res) => {
     let data = {
-        title: "Index",
+        title: "Dashboard",
     };
 
     res.render("index.ejs", data);
@@ -36,10 +34,38 @@ router.get("/dashboard", cookieJwtAuth("admin"), (req, res) => {
 router.get("/upload", cookieJwtAuth("admin"), (req, res) => {
     let data = {
         title: "Upload users",
+        upload: "",
     };
 
     res.render("upload.ejs", data);
 });
+
+router.post(
+    "/upload",
+    cookieJwtAuth("admin"),
+    upload.single("csvFile"),
+    (req, res) => {
+        if (!req.file) {
+            return res.status(400).send("No file uploaded.");
+        }
+
+        const csvFilePath = req.file.path;
+        const results = [];
+
+        fs.createReadStream(csvFilePath)
+            .pipe(csv())
+            .on("data", (data) => {
+                results.push(data);
+            })
+            .on("end", () => {
+                // console.log(results);
+                res.render("upload.ejs", {
+                    title: "Upload users",
+                    upload: results.length,
+                });
+            });
+    },
+);
 
 router.get("/project", cookieJwtAuth("admin"), (req, res) => {
     let data = {

@@ -6,6 +6,11 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const users = require("./users.js");
 
+// const bcrypt = require("bcrypt");
+// const password = "password";
+// const hash = await bcrypt.hash(password, 10);
+// console.log(hash);
+
 // If the user exsist and the password is correct, the user will be redirected to the dashboard
 const checkCredentials = async (req, res) => {
     const { username, password } = req.body;
