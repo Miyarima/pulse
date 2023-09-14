@@ -2,7 +2,8 @@
 
 const express = require("express");
 const router = express.Router();
-const utils = require("./src/utils.js");
+const loginAuth = require("./src/loginAuth.js");
+const cookieJwtAuth = require("./middleware/cookieJwtAuth.js");
 // const users = require("./db/users.js");
 
 // const bcrypt = require("bcrypt");
@@ -21,28 +22,31 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-    let user = req.body.user;
-    let password = req.body.pass;
-
-    const checked = await utils.checkCredentials(user, password);
-
-    if (checked) {
-        return res.redirect("/dashboard");
-    }
-
-    res.render("login.ejs", {
-        title: "Pulse | Login",
-        login: "wrong",
-        user: user,
-    });
+    await loginAuth.checkCredentials(req, res);
 });
 
-router.get("/dashboard", (req, res) => {
+router.get("/dashboard", cookieJwtAuth("admin"), (req, res) => {
     let data = {
         title: "Index",
     };
 
     res.render("index.ejs", data);
+});
+
+router.get("/upload", cookieJwtAuth("admin"), (req, res) => {
+    let data = {
+        title: "Upload users",
+    };
+
+    res.render("upload.ejs", data);
+});
+
+router.get("/project", cookieJwtAuth("admin"), (req, res) => {
+    let data = {
+        title: "Create projects",
+    };
+
+    res.render("project.ejs", data);
 });
 
 router.use((req, res) => {
