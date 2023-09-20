@@ -4,6 +4,8 @@ const csv = require("csv-parser");
 const fs = require("fs");
 const db = require("./users.js");
 const bcrypt = require("bcrypt");
+const path = require("path");
+const upload = require("./renders.js").renderUpload;
 
 /**
  * Adds all users in the array to the database
@@ -40,6 +42,19 @@ const addUsersToDb = (users) => {
 };
 
 /**
+ * Check if the file is CSV
+ * @param {object} file the file to be checked
+ * @returns either true or false
+ */
+const fileFilter = (file) => {
+    const extname = path.extname(file.originalname).toLowerCase();
+    if (extname === ".csv") {
+        return true;
+    }
+    return false;
+};
+
+/**
  * If a file was sent, the data will be parsed and pushed to am array
  * @param {object} req contains the file
  * @param {object} res where to load the page
@@ -47,14 +62,20 @@ const addUsersToDb = (users) => {
  */
 const parseCsv = (req, res) => {
     if (!req.file) {
-        return res.render("upload.ejs", {
-            title: "Upload users",
-            upload: "failed",
-        });
+        return upload(
+            res,
+            "failed",
+            "Something went wrong and nothing has been uploaded",
+        );
     }
 
+    const fileFilterResult = fileFilter(req.file);
     const csvFilePath = req.file.path;
     const results = [];
+
+    if (!fileFilterResult) {
+        return upload(res, "failed", "Please only upload CSV files");
+    }
 
     fs.createReadStream(csvFilePath)
         .pipe(csv())
@@ -63,10 +84,7 @@ const parseCsv = (req, res) => {
         })
         .on("end", () => {
             addUsersToDb(results);
-            res.render("upload.ejs", {
-                title: "Upload users",
-                upload: results.length,
-            });
+            upload(res, results.length, "");
         });
 };
 

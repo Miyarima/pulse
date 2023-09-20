@@ -9,7 +9,7 @@
     </div>
     <div class="mb-4 grid gap-4">
         <form
-            class="flex w-full flex-col items-center justify-center"
+            class="flex w-full flex-col items-center"
             method="POST"
             enctype="multipart/form-data"
         >
@@ -41,7 +41,7 @@
                 />
             </label>
             <input
-                class="my-6 rounded-full border-2 border-sky-400 bg-sky-400 px-10 py-2 font-sans font-bold text-white hover:cursor-pointer hover:bg-white hover:text-sky-400"
+                class="my-6 rounded-lg bg-sky-400 px-12 py-3 font-sans text-lg font-bold text-white transition-colors hover:cursor-pointer hover:bg-sky-500 active:bg-sky-600"
                 type="submit"
                 name="doit"
                 value="Upload Users"
@@ -51,9 +51,7 @@
     <% if (upload !== "") { %> <% if (upload === "failed") { %>
     <div class="mb-4 grid gap-4">
         <div class="flex h-14 justify-center gap-4 text-red-400">
-            <p class="px-4 text-xl">
-                Something went wrong and nothing has been uploaded
-            </p>
+            <p class="px-4 text-xl"><%= message %></p>
         </div>
     </div>
     <% } else { %>

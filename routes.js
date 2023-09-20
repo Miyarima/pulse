@@ -43,7 +43,7 @@ router.get("/upload", cookieJwtAuth("admin"), (req, res) => {
     let data = {
         title: "Upload users",
         upload: "",
-        exsisted: "",
+        message: "",
     };
 
     res.render("upload.ejs", data);
