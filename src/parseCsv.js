@@ -5,6 +5,10 @@ const fs = require("fs");
 const db = require("./users.js");
 const bcrypt = require("bcrypt");
 
+/**
+ * Adds all users in the array to the database
+ * @param {Array} users all users
+ */
 const addUsersToDb = (users) => {
     users.forEach(async (e) => {
         const password = "password";
@@ -35,6 +39,12 @@ const addUsersToDb = (users) => {
     });
 };
 
+/**
+ * If a file was sent, the data will be parsed and pushed to am array
+ * @param {object} req contains the file
+ * @param {object} res where to load the page
+ * @returns If no files was uploaded
+ */
 const parseCsv = (req, res) => {
     if (!req.file) {
         return res.render("upload.ejs", {
