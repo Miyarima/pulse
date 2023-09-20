@@ -9,14 +9,10 @@ const loginAuth = require("./src/loginAuth.js");
 const router = express.Router();
 const upload = multer({ dest: "uploads/" });
 
-router.get("/", async (req, res) => {
-    let data = {
-        title: "Pulse | Login",
-        login: "",
-        user: "",
-    };
+const rend = require("./src/renders.js");
 
-    res.render("login.ejs", data);
+router.get("/", async (req, res) => {
+    rend.renderLogin(req, res);
 });
 
 router.post("/", async (req, res) => {
@@ -24,29 +20,15 @@ router.post("/", async (req, res) => {
 });
 
 router.get("/dashboard", cookieJwtAuth("admin"), (req, res) => {
-    let data = {
-        title: "Dashboard",
-    };
-
-    res.render("index.ejs", data);
+    rend.renderDashboard(req, res);
 });
 
 router.get("/dashboard/user", cookieJwtAuth("user"), (req, res) => {
-    let data = {
-        title: "Dashboard",
-    };
-
-    res.render("index.ejs", data);
+    rend.renderDashboardUser(req, res);
 });
 
 router.get("/upload", cookieJwtAuth("admin"), (req, res) => {
-    let data = {
-        title: "Upload users",
-        upload: "",
-        message: "",
-    };
-
-    res.render("upload.ejs", data);
+    rend.renderUpload(req, res, "", "");
 });
 
 router.post(
@@ -59,11 +41,7 @@ router.post(
 );
 
 router.get("/project", cookieJwtAuth("admin"), (req, res) => {
-    let data = {
-        title: "Create projects",
-    };
-
-    res.render("project.ejs", data);
+    rend.renderProject(req, res);
 });
 
 router.use((req, res) => {

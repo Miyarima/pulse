@@ -15,6 +15,7 @@ const cookieJwtAuth = (role) => {
             const user = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
             const inDb = await users.getUser(user.username);
             if (inDb[0].email === user.username && inDb[0].role === role) {
+                req.firstname = inDb[0].firstname;
                 next();
             } else {
                 throw new Error("Unauthorized");

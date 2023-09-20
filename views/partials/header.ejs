@@ -14,7 +14,7 @@
             class="fixed left-0 top-0 z-40 h-screen w-64 -translate-x-full transition-transform sm:translate-x-0"
         >
             <nav
-                class="h-full overflow-y-auto bg-slate-700 px-3 py-4 text-center text-white"
+                class="h-full overflow-y-auto bg-slate-700 px-3 py-4 text-center text-white flex flex-col"
             >
                 <div class="my-4">
                     <a
@@ -58,6 +58,16 @@
                             </a>
                         </li>
                     </ul>
+                </div>
+                <div class="mt-auto">
+                    <div class="flex items-center p-2 font-sans text-white">
+                        <img
+                                src="/img/user-white.png"
+                                class="mr-3 h-5"
+                                alt="pulse Logo"
+                            />
+                        <p><%= user %></p>
+                    </div>
                 </div>
             </nav>
         </aside>

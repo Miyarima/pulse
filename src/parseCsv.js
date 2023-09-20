@@ -63,6 +63,7 @@ const fileFilter = (file) => {
 const parseCsv = (req, res) => {
     if (!req.file) {
         return upload(
+            req,
             res,
             "failed",
             "Something went wrong and nothing has been uploaded",
@@ -74,7 +75,7 @@ const parseCsv = (req, res) => {
     const results = [];
 
     if (!fileFilterResult) {
-        return upload(res, "failed", "Please only upload CSV files");
+        return upload(req, res, "failed", "Please only upload CSV files");
     }
 
     fs.createReadStream(csvFilePath)
@@ -84,7 +85,7 @@ const parseCsv = (req, res) => {
         })
         .on("end", () => {
             addUsersToDb(results);
-            upload(res, results.length, "");
+            upload(req, res, results.length, "");
         });
 };
 
