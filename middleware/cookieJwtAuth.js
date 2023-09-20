@@ -5,9 +5,11 @@ require("dotenv").config();
 const jwt = require("jsonwebtoken");
 const users = require("../src/users.js");
 
-// Verifies that the token has been created with the same secret
-// Checks if the user provided in the token exsist in the database
-// Check if the users role has access to this route
+/**
+ * Check if the user has a valid token and is authorized
+ * @param {string} role the role which has access to the page
+ * @returns if the user isn't authorized
+ */
 const cookieJwtAuth = (role) => {
     return async (req, res, next) => {
         const token = req.cookies.token;
