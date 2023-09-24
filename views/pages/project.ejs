@@ -8,6 +8,197 @@
             </p>
         </div>
     </div>
+    <form class="mx-auto w-3/4">
+        <div class="mb-6">
+            <label
+                for="project_name"
+                class="mb-2 block font-medium text-gray-900"
+                >Project Name</label
+            >
+            <input
+                type="text"
+                id="project_name"
+                class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-blue-500"
+                placeholder="e.g Aurora"
+                required
+            />
+        </div>
+        <div class="mb-6 grid gap-6 md:grid-cols-2">
+            <div>
+                <label
+                    for="start_date"
+                    class="mb-2 block font-medium text-gray-900"
+                    >Start Date</label
+                >
+                <input
+                    type="date"
+                    id="start_date"
+                    class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-blue-500"
+                    placeholder="John"
+                    required
+                />
+            </div>
+            <div>
+                <label
+                    for="end_date"
+                    class="mb-2 block font-medium text-gray-900"
+                    >End Date</label
+                >
+                <input
+                    type="date"
+                    id="end_date"
+                    class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-blue-500"
+                    placeholder="Doe"
+                    required
+                />
+            </div>
+            <div>
+                <label
+                    for="report_frequency"
+                    class="mb-2 block font-medium text-gray-900"
+                    >Select report frequency</label
+                >
+                <select
+                    id="report_frequency"
+                    class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-blue-500"
+                >
+                    <option selected>Choose report frequency</option>
+                    <option value="daily">Daily</option>
+                    <option value="weekly">Weekly</option>
+                    <option value="fortnightly">Fortnightly</option>
+                    <option value="monthly">Monthly</option>
+                </select>
+            </div>
+            <div>
+                <label for="days" class="mb-2 block font-medium text-gray-900"
+                    >Choose a day (Weekly, Fortnightly)</label
+                >
+                <select
+                    id="days"
+                    class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-blue-500"
+                >
+                    <option selected>Choose a day</option>
+                    <option value="monday">Monday</option>
+                    <option value="tuesday">Tuesday</option>
+                    <option value="wednesday">Wednesday</option>
+                    <option value="thursday">Thursday</option>
+                    <option value="friday">Friday</option>
+                    <option value="saturday">Saturday</option>
+                    <option value="sunday">Sunday</option>
+                </select>
+            </div>
+        </div>
+        <label for="team_members" class="mb-2 block font-medium text-gray-900"
+            >Team members</label
+        >
+        <div
+            id="team_members"
+            class="mb-6 grid gap-2 md:grid-cols-2 lg:grid-cols-3"
+        >
+            <div
+                class="flex items-center rounded-lg border border-gray-300 bg-gray-50 pl-4 hover:bg-sky-100"
+            >
+                <input
+                    id="bordered-checkbox-1"
+                    type="checkbox"
+                    value=""
+                    name="bordered-checkbox"
+                    class="h-4 w-4 rounded bg-gray-50"
+                />
+                <label
+                    for="bordered-checkbox-1"
+                    class="ml-2 w-full py-4 text-sm font-medium text-gray-900 hover:cursor-pointer"
+                    >Jonathan Göransson</label
+                >
+            </div>
+            <div
+                class="flex items-center rounded-lg border border-gray-300 bg-gray-50 pl-4 hover:bg-sky-100"
+            >
+                <input
+                    id="bordered-checkbox-2"
+                    type="checkbox"
+                    value=""
+                    name="bordered-checkbox"
+                    class="h-4 w-4 rounded border-gray-300 bg-gray-50"
+                />
+                <label
+                    for="bordered-checkbox-2"
+                    class="ml-2 w-full py-4 text-sm font-medium text-gray-900 hover:cursor-pointer"
+                    >Marcus Björnbäck</label
+                >
+            </div>
+            <div
+                class="flex items-center rounded-lg border border-gray-300 bg-gray-50 pl-4 hover:bg-sky-100"
+            >
+                <input
+                    id="bordered-checkbox-3"
+                    type="checkbox"
+                    value=""
+                    name="bordered-checkbox"
+                    class="h-4 w-4 rounded border-gray-300 bg-gray-50"
+                />
+                <label
+                    for="bordered-checkbox-3"
+                    class="ml-2 w-full py-4 text-sm font-medium text-gray-900 hover:cursor-pointer"
+                    >William Petermann</label
+                >
+            </div>
+            <div
+                class="flex items-center rounded-lg border border-gray-300 bg-gray-50 pl-4 hover:bg-sky-100"
+            >
+                <input
+                    id="bordered-checkbox-4"
+                    type="checkbox"
+                    value=""
+                    name="bordered-checkbox"
+                    class="h-4 w-4 rounded border-gray-300 bg-gray-50 hover:cursor-pointer"
+                />
+                <label
+                    for="bordered-checkbox-4"
+                    class="ml-2 w-full py-4 text-sm font-medium text-gray-900"
+                    >Kalle Alsing</label
+                >
+            </div>
+            <div
+                class="flex items-center rounded-lg border border-gray-300 bg-gray-50 pl-4 hover:bg-sky-100"
+            >
+                <input
+                    id="bordered-checkbox-5"
+                    type="checkbox"
+                    value=""
+                    name="bordered-checkbox"
+                    class="h-4 w-4 rounded border-gray-300 bg-gray-50 hover:cursor-pointer"
+                />
+                <label
+                    for="bordered-checkbox-5"
+                    class="ml-2 w-full py-4 text-sm font-medium text-gray-900"
+                    >Leo Karlsson</label
+                >
+            </div>
+            <div
+                class="flex items-center rounded-lg border border-gray-300 bg-gray-50 pl-4 hover:bg-sky-100"
+            >
+                <input
+                    id="bordered-checkbox-6"
+                    type="checkbox"
+                    value=""
+                    name="bordered-checkbox"
+                    class="h-4 w-4 rounded border-gray-300 bg-gray-50 hover:cursor-pointer"
+                />
+                <label
+                    for="bordered-checkbox-6"
+                    class="ml-2 w-full py-4 text-sm font-medium text-gray-900"
+                    >Johan Jönsson</label
+                >
+            </div>
+        </div>
+        <input
+            class="my-6 rounded-lg bg-sky-400 px-12 py-3 font-sans text-lg font-bold text-white transition-colors hover:cursor-pointer hover:bg-sky-500 active:bg-sky-600"
+            type="submit"
+            name="doit"
+            value="Create Project"
+        />
+    </form>
 </div>
 
 <%- include("./../partials/footer.ejs") %>
