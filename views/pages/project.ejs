@@ -1,6 +1,6 @@
 <%- include("./../partials/header.ejs") %>
 
-<div class="mx-auto w-5/6 p-4">
+<div class="p-4">
     <div class="mb-14 grid gap-4">
         <div class="flex h-24 items-center">
             <p class="font-sans text-5xl font-semibold text-gray-700">
@@ -70,22 +70,18 @@
                 </select>
             </div>
             <div>
-                <label for="days" class="mb-2 block font-medium text-gray-900"
-                    >Choose a day (Weekly, Fortnightly)</label
+                <label
+                    for="start_date"
+                    class="mb-2 block font-medium text-gray-900"
+                    >First Report</label
                 >
-                <select
-                    id="days"
+                <input
+                    type="date"
+                    id="start_date"
                     class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-blue-500"
-                >
-                    <option selected>Choose a day</option>
-                    <option value="monday">Monday</option>
-                    <option value="tuesday">Tuesday</option>
-                    <option value="wednesday">Wednesday</option>
-                    <option value="thursday">Thursday</option>
-                    <option value="friday">Friday</option>
-                    <option value="saturday">Saturday</option>
-                    <option value="sunday">Sunday</option>
-                </select>
+                    placeholder="John"
+                    required
+                />
             </div>
         </div>
         <label for="team_members" class="mb-2 block font-medium text-gray-900"
