@@ -1,6 +1,7 @@
 "use strict";
 
 const csv = require("./src/parseCsv.js");
+const addReports = require("./src/reports.js");
 const cookieJwtAuth = require("./middleware/cookieJwtAuth.js");
 const multer = require("multer");
 const express = require("express");
@@ -50,8 +51,8 @@ router.get("/project", cookieJwtAuth("admin"), (req, res) => {
 });
 
 router.post("/project", cookieJwtAuth("admin"), (req, res) => {
+    addReports(req.body);
     rend.renderProject(req, res);
-    console.log(req.body);
 });
 
 router.use((req, res) => {

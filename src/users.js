@@ -6,7 +6,6 @@ function createUser(user) {
     return knex("users").insert(user);
 }
 
-// Returns all users
 function getAllUsers() {
     return knex("users").select("*");
 }
@@ -18,9 +17,46 @@ function getSpecificUsers(users) {
         .orderBy("firstname", "asc");
 }
 
-// If found, returns the user with the given email
 function getUser(email) {
     return knex("users").where("email", email);
+}
+
+function getEmployeeId(user) {
+    return knex("users")
+        .where("firstname", user.firstname)
+        .where("lastname", user.lastname)
+        .select("employeeid");
+}
+
+function getProjectId(project, employee) {
+    return knex("projects")
+        .where("project_name", project)
+        .where("employeeid", employee)
+        .select("id");
+}
+
+function createProject(project) {
+    return knex("projects")
+        .insert(project)
+        .then((result) => {
+            return result;
+        })
+        .catch((error) => {
+            console.error("Error executing query:", error);
+            throw error;
+        });
+}
+
+function createReport(report) {
+    return knex("reports")
+        .insert(report)
+        .then((result) => {
+            return result;
+        })
+        .catch((error) => {
+            console.error("Error executing query:", error);
+            throw error;
+        });
 }
 
 // function deleteUser(id) {
@@ -36,4 +72,8 @@ module.exports = {
     getUser,
     createUser,
     getSpecificUsers,
+    createProject,
+    getEmployeeId,
+    createReport,
+    getProjectId,
 };

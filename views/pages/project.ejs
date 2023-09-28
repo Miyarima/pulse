@@ -8,6 +8,15 @@
             </p>
         </div>
     </div>
+    <% if (project !== "") { %>
+    <div class="mb-4 grid gap-4">
+        <div class="flex h-14 justify-center gap-4 text-gray-500">
+            <p class="px-4 text-xl">
+                The project <%= project %> has been created
+            </p>
+        </div>
+    </div>
+    <% }; %>
     <form method="POST" action="/project">
         <div class="mb-6">
             <label
@@ -62,6 +71,7 @@
                 <select
                     id="report_frequency"
                     class="block h-14 w-full rounded border border-gray-300 bg-white p-2.5 text-gray-800 focus:border-blue-500 focus:outline-none"
+                    name="report_frequency"
                 >
                     <option selected>Choose report frequency</option>
                     <option value="daily">Daily</option>
@@ -122,15 +132,6 @@
             />
         </div>
     </form>
-    <% if (project !== "") { %>
-    <div class="mb-4 grid gap-4">
-        <div class="flex h-14 justify-center gap-4 text-gray-500">
-            <p class="px-4 text-xl">
-                The project <%= project %> has been created
-            </p>
-        </div>
-    </div>
-    <% }; %>
 </div>
 
 <%- include("./../partials/footer.ejs") %>

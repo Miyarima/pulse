@@ -33,7 +33,7 @@ function renderDashboard(req, res) {
  * @param {object} res where to render
  */
 function renderDashboardUser(req, res) {
-    res.render("index.ejs", {
+    res.render("user-dashboard.ejs", {
         title: "Pulse | Dashboard",
         user: `${req.firstname} ${req.lastname}`,
     });
