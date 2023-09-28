@@ -2,11 +2,25 @@
 
 // const db = require("./users.js");
 
+function status(date) {
+    const today = Date.now();
+
+    const milliDay = 86400000;
+    const diff = date - today;
+
+    if (date > today) {
+        return "fine";
+    } else if (milliDay > diff && diff > -milliDay) {
+        return "today";
+    }
+    return "late";
+}
+
 const formatReports = (reports) => {
     let fixedReports = [];
     const options = {
         year: "numeric",
-        month: "long",
+        month: "numeric",
         day: "numeric",
     };
     reports.map((e) => {
@@ -14,7 +28,11 @@ const formatReports = (reports) => {
             report_id: e.report_id,
             project_name: e.project_name,
             report_text: e.report_text,
-            report_date: new Date(e.report_date).toLocaleDateString(options),
+            report_date: new Date(e.report_date).toLocaleDateString(
+                "sv-SE",
+                options,
+            ),
+            report_status: status(e.report_date),
         });
     });
 

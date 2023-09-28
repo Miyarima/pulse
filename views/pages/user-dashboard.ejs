@@ -21,60 +21,40 @@
             <p class="px-4 text-2xl">Due</p>
             <p class="px-4 text-2xl">Status</p>
         </div>
-        <% for (let i = 0; i < reports.length; i++) { %>
-        <div
-            class="grid h-14 grid-cols-4 items-center gap-4 rounded bg-white capitalize text-gray-800 opacity-70 hover:cursor-pointer hover:bg-sky-100"
-        >
-            <p class="px-4 text-xl"><%= i %></p>
-            <p class="px-4 text-xl"><%= reports[i].project_name %></p>
-            <p class="px-4 text-xl"><%= reports[i].report_date %></p>
-            <p class="px-4 text-xl">
-                <% if (reports[i].report_text === "nothing added") { %>
-                incomplete <% }; %>
-            </p>
-        </div>
-        <% } %>
-        <div
-            class="grid h-14 grid-cols-4 items-center gap-4 rounded bg-white capitalize text-gray-800 opacity-70 hover:cursor-pointer hover:bg-sky-100"
-        >
-            <p class="px-4 text-xl">1</p>
-            <p class="px-4 text-xl">aurora</p>
-            <p class="px-4 text-xl">2023-09-13</p>
-            <p class="px-4 text-xl">Done</p>
-        </div>
-        <div
-            class="grid h-14 grid-cols-4 items-center gap-4 rounded border-l-4 border-green-400 bg-white capitalize text-gray-500 drop-shadow-md hover:cursor-pointer hover:bg-sky-100"
-        >
-            <p class="px-4 text-xl">2</p>
-            <p class="px-4 text-xl">Echo Lake</p>
-            <p class="px-4 text-xl">2023-09-13</p>
-            <p class="px-4 text-xl">incomplete</p>
-        </div>
-        <div
-            class="grid h-14 grid-cols-4 items-center gap-4 rounded border-l-4 border-yellow-400 bg-white capitalize text-gray-500 drop-shadow-md hover:cursor-pointer hover:bg-sky-100"
-        >
-            <p class="px-4 text-xl">3</p>
-            <p class="px-4 text-xl">Echo Lake</p>
-            <p class="px-4 text-xl">2023-09-11</p>
-            <p class="px-4 text-xl">incomplete</p>
-        </div>
+        <% for (let i = 0; i < reports.length; i++) { %> <% if
+        (reports[i].report_status === "late") { %>
         <div
             class="grid h-14 grid-cols-4 items-center gap-4 rounded border-l-4 border-red-400 bg-white capitalize text-gray-500 drop-shadow-md hover:cursor-pointer hover:bg-sky-100"
         >
-            <p class="px-4 text-xl">4</p>
-            <p class="px-4 text-xl">Echo Lake</p>
-            <p class="px-4 text-xl">2023-09-10</p>
-            <p class="px-4 text-xl">incomplete</p>
+            <% } else if (reports[i].report_status === "today") { %>
+            <div
+                class="grid h-14 grid-cols-4 items-center gap-4 rounded border-l-4 border-yellow-400 bg-white capitalize text-gray-500 drop-shadow-md hover:cursor-pointer hover:bg-sky-100"
+            >
+                <% } else { %>
+                <div
+                    class="grid h-14 grid-cols-4 items-center gap-4 rounded border-l-4 border-green-400 bg-white capitalize text-gray-500 drop-shadow-md hover:cursor-pointer hover:bg-sky-100"
+                >
+                    <% }; %>
+                    <p class="px-4 text-xl"><%= i+1 %></p>
+                    <p class="px-4 text-xl"><%= reports[i].project_name %></p>
+                    <p class="px-4 text-xl"><%= reports[i].report_date %></p>
+                    <p class="px-4 text-xl">
+                        <% if (reports[i].report_text === "nothing added") { %>
+                        incomplete <% }; %>
+                    </p>
+                </div>
+                <% }; %>
+                <div
+                    class="grid h-14 grid-cols-4 items-center gap-4 rounded bg-white capitalize text-gray-800 opacity-70 hover:cursor-pointer hover:bg-sky-100"
+                >
+                    <p class="px-4 text-xl">1</p>
+                    <p class="px-4 text-xl">aurora</p>
+                    <p class="px-4 text-xl">2023-09-13</p>
+                    <p class="px-4 text-xl">Done</p>
+                </div>
+            </div>
         </div>
-        <div
-            class="grid h-14 grid-cols-4 items-center gap-4 rounded bg-white capitalize text-gray-800 opacity-70 hover:cursor-pointer hover:bg-sky-100"
-        >
-            <p class="px-4 text-xl">5</p>
-            <p class="px-4 text-xl">Echo Lake</p>
-            <p class="px-4 text-xl">2023-09-13</p>
-            <p class="px-4 text-xl">done</p>
-        </div>
+
+        <%- include("./../partials/footer.ejs") %>
     </div>
 </div>
-
-<%- include("./../partials/footer.ejs") %>
