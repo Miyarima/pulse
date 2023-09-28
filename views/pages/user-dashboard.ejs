@@ -15,56 +15,63 @@
         </div>
     </div>
     <div class="mb-4 grid gap-4 rounded-lg">
-        <div class="grid h-10 grid-cols-6 items-center gap-4 text-gray-500">
+        <div class="grid h-10 grid-cols-4 items-center gap-4 text-gray-500">
             <p class="px-4 text-2xl">#</p>
             <p class="px-4 text-2xl">Project</p>
             <p class="px-4 text-2xl">Due</p>
-            <p class="px-4 text-2xl">Name</p>
             <p class="px-4 text-2xl">Status</p>
         </div>
+        <% for (let i = 0; i < reports.length; i++) { %>
         <div
-            class="grid h-14 grid-cols-6 items-center gap-4 rounded bg-white capitalize text-gray-800 opacity-70 hover:cursor-pointer hover:bg-sky-100"
+            class="grid h-14 grid-cols-4 items-center gap-4 rounded bg-white capitalize text-gray-800 opacity-70 hover:cursor-pointer hover:bg-sky-100"
+        >
+            <p class="px-4 text-xl"><%= i %></p>
+            <p class="px-4 text-xl"><%= reports[i].project_name %></p>
+            <p class="px-4 text-xl"><%= reports[i].report_date %></p>
+            <p class="px-4 text-xl">
+                <% if (reports[i].report_text === "nothing added") { %>
+                incomplete <% }; %>
+            </p>
+        </div>
+        <% } %>
+        <div
+            class="grid h-14 grid-cols-4 items-center gap-4 rounded bg-white capitalize text-gray-800 opacity-70 hover:cursor-pointer hover:bg-sky-100"
         >
             <p class="px-4 text-xl">1</p>
             <p class="px-4 text-xl">aurora</p>
             <p class="px-4 text-xl">2023-09-13</p>
-            <p class="px-4 text-xl">kazuki tanaka</p>
             <p class="px-4 text-xl">Done</p>
         </div>
         <div
-            class="grid h-14 grid-cols-6 items-center gap-4 rounded border-l-4 border-green-400 bg-white capitalize text-gray-500 drop-shadow-md hover:cursor-pointer hover:bg-sky-100"
+            class="grid h-14 grid-cols-4 items-center gap-4 rounded border-l-4 border-green-400 bg-white capitalize text-gray-500 drop-shadow-md hover:cursor-pointer hover:bg-sky-100"
         >
             <p class="px-4 text-xl">2</p>
             <p class="px-4 text-xl">Echo Lake</p>
             <p class="px-4 text-xl">2023-09-13</p>
-            <p class="px-4 text-xl">kazuki tanaka</p>
             <p class="px-4 text-xl">incomplete</p>
         </div>
         <div
-            class="grid h-14 grid-cols-6 items-center gap-4 rounded border-l-4 border-yellow-400 bg-white capitalize text-gray-500 drop-shadow-md hover:cursor-pointer hover:bg-sky-100"
+            class="grid h-14 grid-cols-4 items-center gap-4 rounded border-l-4 border-yellow-400 bg-white capitalize text-gray-500 drop-shadow-md hover:cursor-pointer hover:bg-sky-100"
         >
             <p class="px-4 text-xl">3</p>
             <p class="px-4 text-xl">Echo Lake</p>
             <p class="px-4 text-xl">2023-09-11</p>
-            <p class="px-4 text-xl">kazuki tanaka</p>
             <p class="px-4 text-xl">incomplete</p>
         </div>
         <div
-            class="grid h-14 grid-cols-6 items-center gap-4 rounded border-l-4 border-red-400 bg-white capitalize text-gray-500 drop-shadow-md hover:cursor-pointer hover:bg-sky-100"
+            class="grid h-14 grid-cols-4 items-center gap-4 rounded border-l-4 border-red-400 bg-white capitalize text-gray-500 drop-shadow-md hover:cursor-pointer hover:bg-sky-100"
         >
             <p class="px-4 text-xl">4</p>
             <p class="px-4 text-xl">Echo Lake</p>
             <p class="px-4 text-xl">2023-09-10</p>
-            <p class="px-4 text-xl">kazuki tanaka</p>
             <p class="px-4 text-xl">incomplete</p>
         </div>
         <div
-            class="grid h-14 grid-cols-6 items-center gap-4 rounded bg-white capitalize text-gray-800 opacity-70 hover:cursor-pointer hover:bg-sky-100"
+            class="grid h-14 grid-cols-4 items-center gap-4 rounded bg-white capitalize text-gray-800 opacity-70 hover:cursor-pointer hover:bg-sky-100"
         >
             <p class="px-4 text-xl">5</p>
             <p class="px-4 text-xl">Echo Lake</p>
             <p class="px-4 text-xl">2023-09-13</p>
-            <p class="px-4 text-xl">kazuki tanaka</p>
             <p class="px-4 text-xl">done</p>
         </div>
     </div>

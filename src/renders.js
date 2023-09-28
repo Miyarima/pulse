@@ -1,6 +1,7 @@
 "use-strict";
 
 const db = require("./users.js");
+const format = require("./userReports.js");
 
 /**
  * Renders the login page
@@ -32,10 +33,20 @@ function renderDashboard(req, res) {
  * @param {object} req contains information
  * @param {object} res where to render
  */
-function renderDashboardUser(req, res) {
+async function renderDashboardUser(req, res) {
+    const employeeId = await db.getEmployeeId({
+        firstname: req.firstname,
+        lastname: req.lastname,
+    });
+
+    let reports = await db.getReports(employeeId[0].employeeid);
+
+    reports = format(reports);
+
     res.render("user-dashboard.ejs", {
         title: "Pulse | Dashboard",
         user: `${req.firstname} ${req.lastname}`,
+        reports: reports,
     });
 }
 

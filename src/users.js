@@ -59,6 +59,20 @@ function createReport(report) {
         });
 }
 
+function getReports(employeeId) {
+    return knex
+        .select(
+            "reports.id as report_id",
+            "projects.project_name",
+            "reports.report_text",
+            "reports.report_date",
+        )
+        .from("reports")
+        .join("projects", "reports.project_id", "projects.id")
+        .join("users", "reports.employee_id", "users.employeeid")
+        .where("employee_id", employeeId);
+}
+
 // function deleteUser(id) {
 //     return knex("users").where("id", id).del();
 // }
@@ -76,4 +90,5 @@ module.exports = {
     getEmployeeId,
     createReport,
     getProjectId,
+    getReports,
 };
