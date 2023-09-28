@@ -23,7 +23,7 @@ function renderLogin(req, res) {
 function renderDashboard(req, res) {
     res.render("index.ejs", {
         title: "Pulse | Dashboard",
-        user: req.firstname,
+        user: `${req.firstname} ${req.lastname}`,
     });
 }
 
@@ -35,7 +35,7 @@ function renderDashboard(req, res) {
 function renderDashboardUser(req, res) {
     res.render("index.ejs", {
         title: "Pulse | Dashboard",
-        user: req.firstname,
+        user: `${req.firstname} ${req.lastname}`,
     });
 }
 
@@ -51,7 +51,7 @@ function renderUpload(req, res, upload, message) {
         title: "Pulse | Upload users",
         upload: upload,
         message: message,
-        user: req.firstname,
+        user: `${req.firstname} ${req.lastname}`,
     });
 }
 
@@ -71,7 +71,7 @@ async function renderProject(req, res) {
 
     res.render("project.ejs", {
         title: "Pulse | Create projects",
-        user: req.firstname,
+        user: `${req.firstname} ${req.lastname}`,
         project: projectName,
         team: teamMembers,
     });
