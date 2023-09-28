@@ -8,18 +8,19 @@
             </p>
         </div>
     </div>
-    <form>
+    <form method="POST" action="/project">
         <div class="mb-6">
             <label
                 for="project_name"
-                class="mb-2 block font-medium text-gray-900"
+                class="mb-2 block text-lg font-medium text-gray-900"
                 >Project Name</label
             >
             <input
                 type="text"
                 id="project_name"
-                class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-blue-500"
+                class="block h-14 w-full rounded border border-gray-300 bg-white p-2.5 text-gray-800 focus:border-blue-500 focus:outline-none"
                 placeholder="e.g Aurora"
+                name="project_name"
                 required
             />
         </div>
@@ -27,40 +28,40 @@
             <div>
                 <label
                     for="start_date"
-                    class="mb-2 block font-medium text-gray-900"
+                    class="mb-2 block text-lg font-medium text-gray-900"
                     >Start Date</label
                 >
                 <input
                     type="date"
                     id="start_date"
-                    class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-blue-500"
-                    placeholder="John"
+                    class="block h-14 w-full rounded border border-gray-300 bg-white p-2.5 text-gray-800 focus:border-blue-500 focus:outline-none"
+                    name="start_date"
                     required
                 />
             </div>
             <div>
                 <label
                     for="end_date"
-                    class="mb-2 block font-medium text-gray-900"
+                    class="mb-2 block text-lg font-medium text-gray-900"
                     >End Date</label
                 >
                 <input
                     type="date"
                     id="end_date"
-                    class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-blue-500"
-                    placeholder="Doe"
+                    class="block h-14 w-full rounded border border-gray-300 bg-white p-2.5 text-gray-800 focus:border-blue-500 focus:outline-none"
+                    name="end_date"
                     required
                 />
             </div>
             <div>
                 <label
                     for="report_frequency"
-                    class="mb-2 block font-medium text-gray-900"
+                    class="mb-2 block text-lg font-medium text-gray-900"
                     >Select report frequency</label
                 >
                 <select
                     id="report_frequency"
-                    class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-blue-500"
+                    class="block h-14 w-full rounded border border-gray-300 bg-white p-2.5 text-gray-800 focus:border-blue-500 focus:outline-none"
                 >
                     <option selected>Choose report frequency</option>
                     <option value="daily">Daily</option>
@@ -71,122 +72,46 @@
             </div>
             <div>
                 <label
-                    for="start_date"
-                    class="mb-2 block font-medium text-gray-900"
+                    for="first_report"
+                    class="mb-2 block text-lg font-medium text-gray-900"
                     >First Report</label
                 >
                 <input
                     type="date"
-                    id="start_date"
-                    class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-blue-500"
-                    placeholder="John"
+                    id="first_report"
+                    class="block h-14 w-full rounded border border-gray-300 bg-white p-2.5 text-gray-800 focus:border-blue-500 focus:outline-none"
+                    name="first_report"
                     required
                 />
             </div>
         </div>
-        <label for="team_members" class="mb-2 block font-medium text-gray-900"
+        <label
+            for="team_members"
+            class="mb-2 block text-lg font-medium text-gray-900"
             >Team members</label
         >
         <div
             id="team_members"
             class="mb-6 grid gap-2 md:grid-cols-2 lg:grid-cols-3"
         >
+            <% for (let i = 0; i < team.length; i++) { %>
             <div
-                class="flex items-center rounded-lg border border-gray-300 bg-gray-50 pl-4 hover:bg-sky-100"
+                class="flex items-center rounded border border-gray-300 bg-gray-50 pl-4 text-gray-800 hover:bg-sky-100"
             >
                 <input
-                    id="bordered-checkbox-1"
+                    id="bordered-checkbox-<%= i %>"
                     type="checkbox"
-                    value=""
-                    name="bordered-checkbox"
+                    value="<%= team[i].firstname %> <%= team[i].lastname %>"
+                    name="team_members"
                     class="h-4 w-4 rounded bg-gray-50"
                 />
                 <label
-                    for="bordered-checkbox-1"
-                    class="ml-2 w-full py-4 text-sm font-medium text-gray-900 hover:cursor-pointer"
-                    >Jonathan Göransson</label
+                    for="bordered-checkbox-<%= i %>"
+                    class="ml-2 w-full py-4 text-sm capitalize text-gray-900 hover:cursor-pointer"
+                    ><%= team[i].firstname %> <%= team[i].lastname %></label
                 >
             </div>
-            <div
-                class="flex items-center rounded-lg border border-gray-300 bg-gray-50 pl-4 hover:bg-sky-100"
-            >
-                <input
-                    id="bordered-checkbox-2"
-                    type="checkbox"
-                    value=""
-                    name="bordered-checkbox"
-                    class="h-4 w-4 rounded border-gray-300 bg-gray-50"
-                />
-                <label
-                    for="bordered-checkbox-2"
-                    class="ml-2 w-full py-4 text-sm font-medium text-gray-900 hover:cursor-pointer"
-                    >Marcus Björnbäck</label
-                >
-            </div>
-            <div
-                class="flex items-center rounded-lg border border-gray-300 bg-gray-50 pl-4 hover:bg-sky-100"
-            >
-                <input
-                    id="bordered-checkbox-3"
-                    type="checkbox"
-                    value=""
-                    name="bordered-checkbox"
-                    class="h-4 w-4 rounded border-gray-300 bg-gray-50"
-                />
-                <label
-                    for="bordered-checkbox-3"
-                    class="ml-2 w-full py-4 text-sm font-medium text-gray-900 hover:cursor-pointer"
-                    >William Petermann</label
-                >
-            </div>
-            <div
-                class="flex items-center rounded-lg border border-gray-300 bg-gray-50 pl-4 hover:bg-sky-100"
-            >
-                <input
-                    id="bordered-checkbox-4"
-                    type="checkbox"
-                    value=""
-                    name="bordered-checkbox"
-                    class="h-4 w-4 rounded border-gray-300 bg-gray-50 hover:cursor-pointer"
-                />
-                <label
-                    for="bordered-checkbox-4"
-                    class="ml-2 w-full py-4 text-sm font-medium text-gray-900"
-                    >Kalle Alsing</label
-                >
-            </div>
-            <div
-                class="flex items-center rounded-lg border border-gray-300 bg-gray-50 pl-4 hover:bg-sky-100"
-            >
-                <input
-                    id="bordered-checkbox-5"
-                    type="checkbox"
-                    value=""
-                    name="bordered-checkbox"
-                    class="h-4 w-4 rounded border-gray-300 bg-gray-50 hover:cursor-pointer"
-                />
-                <label
-                    for="bordered-checkbox-5"
-                    class="ml-2 w-full py-4 text-sm font-medium text-gray-900"
-                    >Leo Karlsson</label
-                >
-            </div>
-            <div
-                class="flex items-center rounded-lg border border-gray-300 bg-gray-50 pl-4 hover:bg-sky-100"
-            >
-                <input
-                    id="bordered-checkbox-6"
-                    type="checkbox"
-                    value=""
-                    name="bordered-checkbox"
-                    class="h-4 w-4 rounded border-gray-300 bg-gray-50 hover:cursor-pointer"
-                />
-                <label
-                    for="bordered-checkbox-6"
-                    class="ml-2 w-full py-4 text-sm font-medium text-gray-900"
-                    >Johan Jönsson</label
-                >
-            </div>
+            <% } %>
         </div>
         <div class="flex justify-center">
             <input
@@ -197,6 +122,15 @@
             />
         </div>
     </form>
+    <% if (project !== "") { %>
+    <div class="mb-4 grid gap-4">
+        <div class="flex h-14 justify-center gap-4 text-gray-500">
+            <p class="px-4 text-xl">
+                The project <%= project %> has been created
+            </p>
+        </div>
+    </div>
+    <% }; %>
 </div>
 
 <%- include("./../partials/footer.ejs") %>

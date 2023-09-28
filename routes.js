@@ -44,6 +44,11 @@ router.get("/project", cookieJwtAuth("admin"), (req, res) => {
     rend.renderProject(req, res);
 });
 
+router.post("/project", cookieJwtAuth("admin"), (req, res) => {
+    rend.renderProject(req, res);
+    console.log(req.body);
+});
+
 router.use((req, res) => {
     res.status(404).render("404.ejs", {
         title: "Pulse | Page not Found",

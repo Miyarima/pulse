@@ -1,5 +1,7 @@
 "use-strict";
 
+const db = require("./users.js");
+
 /**
  * Renders the login page
  * @param {object} req contains information
@@ -58,10 +60,20 @@ function renderUpload(req, res, upload, message) {
  * @param {object} req contains information
  * @param {object} res where to render
  */
-function renderProject(req, res) {
+async function renderProject(req, res) {
+    let projectName = "";
+
+    if (req.body.project_name) {
+        projectName = req.body.project_name;
+    }
+
+    const teamMembers = await db.getSpecificUsers("user");
+
     res.render("project.ejs", {
         title: "Pulse | Create projects",
         user: req.firstname,
+        project: projectName,
+        team: teamMembers,
     });
 }
 

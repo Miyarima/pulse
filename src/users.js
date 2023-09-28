@@ -11,6 +11,13 @@ function getAllUsers() {
     return knex("users").select("*");
 }
 
+function getSpecificUsers(users) {
+    return knex("users")
+        .where("role", users)
+        .select("firstname", "lastname")
+        .orderBy("firstname", "asc");
+}
+
 // If found, returns the user with the given email
 function getUser(email) {
     return knex("users").where("email", email);
@@ -28,4 +35,5 @@ module.exports = {
     getAllUsers,
     getUser,
     createUser,
+    getSpecificUsers,
 };
