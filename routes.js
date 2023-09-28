@@ -19,6 +19,11 @@ router.post("/", async (req, res) => {
     await loginAuth.checkCredentials(req, res);
 });
 
+router.post("/logout", cookieJwtAuth("user"), (req, res) => {
+    res.clearCookie("token");
+    res.redirect("/");
+});
+
 router.get("/dashboard", cookieJwtAuth("admin"), (req, res) => {
     rend.renderDashboard(req, res);
 });

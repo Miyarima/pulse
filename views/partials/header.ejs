@@ -14,7 +14,7 @@
             class="fixed left-0 top-0 z-40 h-screen w-64 -translate-x-full transition-transform sm:translate-x-0"
         >
             <nav
-                class="h-full overflow-y-auto bg-slate-700 px-3 py-4 text-center text-white flex flex-col"
+                class="flex h-full flex-col overflow-y-auto bg-slate-700 px-3 py-4 text-center text-white"
             >
                 <div class="my-4">
                     <a
@@ -62,13 +62,21 @@
                 <div class="mt-auto">
                     <div class="flex items-center p-2 font-sans text-white">
                         <img
-                                src="/img/user-white.png"
-                                class="mr-3 h-5"
-                                alt="pulse Logo"
-                            />
+                            src="/img/user-white.png"
+                            class="mr-3 h-5"
+                            alt="pulse Logo"
+                        />
                         <p><%= user %></p>
                     </div>
                 </div>
+                <form action="/logout" method="POST">
+                    <input
+                        class="rounded w-full bg-sky-400 px-10 py-2 font-sans font-bold text-white transition-colors hover:cursor-pointer hover:bg-sky-500 active:bg-sky-600"
+                        type="submit"
+                        name="doit"
+                        value="Logout"
+                    />
+                </form>
             </nav>
         </aside>
         <main class="h-screen bg-gray-100 p-4 sm:ml-64">
