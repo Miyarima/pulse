@@ -88,10 +88,21 @@ async function renderProject(req, res) {
     });
 }
 
+function renderSetup(req, res) {
+    // const email = req.params.email;
+    // const string = req.params.string;
+
+    res.render("setup.ejs", {
+        title: "Pulse | Set up Account",
+        password: "",
+    });
+}
+
 module.exports = {
     renderLogin,
     renderDashboard,
     renderUpload,
     renderProject,
     renderDashboardUser,
+    renderSetup,
 };

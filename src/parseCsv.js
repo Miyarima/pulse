@@ -6,6 +6,8 @@ const db = require("./users.js");
 const bcrypt = require("bcrypt");
 const path = require("path");
 const upload = require("./renders.js").renderUpload;
+const mail = require("./mail.js");
+const rand = require("crypto");
 
 /**
  * Adds all users in the array to the database
@@ -15,6 +17,7 @@ const addUsersToDb = (users) => {
     users.forEach(async (e) => {
         const password = "password";
         const hash = await bcrypt.hash(password, 10);
+        const string = rand.randomBytes(64).toString("hex");
 
         const newUser = {
             firstname: e.firstname,
@@ -25,6 +28,7 @@ const addUsersToDb = (users) => {
             email: e.email,
             password: hash,
             role: e.role,
+            first: string,
         };
 
         const alreadyExsist = await db.getUser(e.email);
@@ -37,6 +41,10 @@ const addUsersToDb = (users) => {
                 .catch((error) => {
                     console.error("Error inserting user:", error);
                 });
+
+            if (e.email === "jogo19@student.bth.se") {
+                mail(e.email, e.firstname, string);
+            }
         }
     });
 };

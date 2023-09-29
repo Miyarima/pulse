@@ -9,7 +9,7 @@ const express = require("express");
 const loginAuth = require("./src/loginAuth.js");
 const router = express.Router();
 const upload = multer({ dest: "uploads/" });
-
+const password = require("./src/password.js");
 const rend = require("./src/renders.js");
 
 router.get("/", async (req, res) => {
@@ -53,6 +53,14 @@ router.get("/project", cookieJwtAuth("admin"), (req, res) => {
 router.post("/project", cookieJwtAuth("admin"), (req, res) => {
     addReports(req.body);
     rend.renderProject(req, res);
+});
+
+router.get("/setup/:email/:string", (req, res) => {
+    rend.renderSetup(req, res);
+});
+
+router.post("/setup/:email/:string", (req, res) => {
+    password(req, res);
 });
 
 router.use((req, res) => {

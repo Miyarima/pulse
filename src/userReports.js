@@ -1,7 +1,10 @@
 "use-strict";
 
-// const db = require("./users.js");
-
+/**
+ * Checks what status a given day has
+ * @param {date} date the date to be checkedw
+ * @returns status of the date
+ */
 function status(date) {
     const today = Date.now();
 
@@ -16,6 +19,11 @@ function status(date) {
     return "late";
 }
 
+/**
+ * Changes the format of date and adds a status
+ * @param {Array} reports reports to restructure
+ * @returns the fixed array
+ */
 const formatReports = (reports) => {
     let fixedReports = [];
     const options = {

@@ -77,9 +77,16 @@ function getReports(employeeId) {
 //     return knex("users").where("id", id).del();
 // }
 
-// function updateUser(id, user) {
-//     return knex("users").where("id", id).update(user);
-// }
+function getUserWithString(email, string) {
+    return knex("users").where("email", email).where("first", string);
+}
+
+function updateUserPassword(email, string, update) {
+    return knex("users")
+        .where("email", email)
+        .where("first", string)
+        .update(update);
+}
 
 module.exports = {
     getAllUsers,
@@ -91,4 +98,6 @@ module.exports = {
     createReport,
     getProjectId,
     getReports,
+    updateUserPassword,
+    getUserWithString,
 };

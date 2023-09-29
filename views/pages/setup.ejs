@@ -1,0 +1,50 @@
+<%- include("./../partials/password-header.ejs") %>
+
+<div class="rounded-xl bg-gray-100 border-2 border-gray-200">
+    <h1
+        class="my-5 border-b-2 border-gray-200 px-2 py-4 text-center font-sans text-5xl font-bold text-sky-500/75"
+    >
+        Pulse
+    </h1>
+    <p class="text-center font-sans text-gray-800">
+        Please enter your new password in the fields
+    </p>
+    <form class="m-10 flex w-80 flex-col py-2" method="post">
+        <% if (password === "wrong") { %>
+        <p class="text-center text-sm text-red-600">
+            The passwords doesn't match.
+        </p>
+        <% } else if (password === "not exsist") {%>
+        <p class="text-center text-sm text-red-600">
+            This users doesn't exsist.
+        </p>
+        <% }; %>
+
+        <input
+            class="my-6 mb-10 border-b-2 border-gray-400 bg-gray-100 p-1 focus:outline-none"
+            type="password"
+            name="password1"
+            value=""
+            placeholder="Password"
+            required
+        />
+
+        <input
+            class="my-6 mb-10 border-b-2 border-gray-400 bg-gray-100 p-1 focus:outline-none"
+            type="password"
+            name="password2"
+            value=""
+            placeholder="Password"
+            required
+        />
+
+        <input
+            class="my-6 rounded-full bg-sky-400 px-10 py-2 font-sans font-bold text-white transition-colors hover:cursor-pointer hover:bg-sky-500 active:bg-sky-600"
+            type="submit"
+            name="doit"
+            value="Change Password"
+        />
+    </form>
+</div>
+
+<%- include("./../partials/footer.ejs") %>

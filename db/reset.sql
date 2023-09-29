@@ -13,7 +13,8 @@ CREATE TABLE users (
     number TEXT,
     email TEXT NOT NULL,
     password TEXT NOT NULL,
-    role TEXT NOT NULL
+    role TEXT NOT NULL,
+    first TEXT
 );
 
 -- Create the projects table
@@ -38,9 +39,9 @@ CREATE TABLE reports (
 );
 
 -- TEST DATA
-INSERT INTO users (firstname, lastname, employeeid, address, number, email, password, role)
+INSERT INTO users (firstname, lastname, employeeid, address, number, email, password, role, first)
 VALUES
-    ('boss', 'man', 1, '789 Oak St', '555-111-2222', 'admin@example.com', '$2b$10$xA4HOn.hqQu2lY6uvMbjHuYO8bb6ESYBvizuwyHEquW/nQJFLJQLa', 'admin');
+    ('boss', 'man', 1, '789 Oak St', '555-111-2222', 'admin@example.com', '$2b$10$xA4HOn.hqQu2lY6uvMbjHuYO8bb6ESYBvizuwyHEquW/nQJFLJQLa', 'admin', '');
 
 -- Insert sample data into the projects table
 -- INSERT INTO projects (project_name, employeeid)
