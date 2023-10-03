@@ -1,4 +1,5 @@
 <%- include("./../partials/header.ejs") %>
+
 <div class="p-4">
     <div class="mb-14 grid grid-cols-3 gap-4">
         <div class="flex h-24 items-center">
@@ -14,105 +15,70 @@
         </div>
     </div>
     <div class="mb-4 grid gap-4 rounded-lg">
-        <div class="grid h-10 grid-cols-6 items-center gap-4 text-gray-500">
+        <div class="grid h-10 grid-cols-6 items-center gap-4 text-gray-500 capitalize">
             <p class="px-4 text-2xl">#</p>
-            <p class="px-4 text-2xl">Name</p>
-            <p class="px-4 text-2xl">Date</p>
-            <p class="px-4 text-2xl">Due</p>
-            <p class="px-4 text-2xl">Project</p>
-            <p class="px-4 text-2xl">Status</p>
+            <p class="px-4 text-2xl">name</p>
+            <p class="px-4 text-2xl">project</p>
+            <p class="px-4 text-2xl">due</p>
+            <p class="px-4 text-2xl">turned in</p>
+            <p class="px-4 text-2xl">status</p>
         </div>
-        <div
-            class="grid h-14 grid-cols-6 items-center gap-4 rounded bg-white text-gray-800 opacity-70 hover:cursor-pointer hover:bg-sky-100"
-        >
-            <p class="px-4 text-xl">1</p>
-            <p class="px-4 text-xl">Jonathan</p>
-            <p class="px-4 text-xl">2023-09-13</p>
-            <p class="px-4 text-xl">2023-09-13</p>
-            <p class="px-4 text-xl">Aurora</p>
-            <p class="px-4 text-xl">Read</p>
-        </div>
-        <div
-            class="grid h-14 grid-cols-6 items-center gap-4 rounded border-l-4 border-green-400 bg-white text-gray-500 drop-shadow-md hover:cursor-pointer hover:bg-sky-100"
-        >
-            <p class="px-4 text-xl">2</p>
-            <p class="px-4 text-xl">Jonathan</p>
-            <p class="px-4 text-xl">2023-09-13</p>
-            <p class="px-4 text-xl">2023-09-13</p>
-            <p class="px-4 text-xl">Echo Lake</p>
-            <p class="px-4 text-xl">Unread</p>
-        </div>
-        <div
-            class="grid h-14 grid-cols-6 items-center gap-4 rounded border-l-4 border-yellow-400 bg-white text-gray-500 drop-shadow-md hover:cursor-pointer hover:bg-sky-100"
-        >
-            <p class="px-4 text-xl">3</p>
-            <p class="px-4 text-xl">Jonathan</p>
-            <p class="px-4 text-xl">2023-09-13</p>
-            <p class="px-4 text-xl">2023-09-11</p>
-            <p class="px-4 text-xl">Echo Lake</p>
-            <p class="px-4 text-xl">Unread</p>
-        </div>
-        <div
-            class="grid h-14 grid-cols-6 items-center gap-4 rounded bg-white text-gray-800 opacity-70 hover:cursor-pointer hover:bg-sky-100"
-        >
-            <p class="px-4 text-xl">4</p>
-            <p class="px-4 text-xl">Jonathan</p>
-            <p class="px-4 text-xl">2023-09-13</p>
-            <p class="px-4 text-xl">2023-09-13</p>
-            <p class="px-4 text-xl">Echo Lake</p>
-            <p class="px-4 text-xl">Read</p>
-        </div>
-        <div
-            class="grid h-14 grid-cols-6 items-center gap-4 rounded border-l-4 border-green-400 bg-white text-gray-500 drop-shadow-md hover:cursor-pointer hover:bg-sky-100"
-        >
-            <p class="px-4 text-xl">5</p>
-            <p class="px-4 text-xl">Jonathan</p>
-            <p class="px-4 text-xl">2023-09-13</p>
-            <p class="px-4 text-xl">2023-09-13</p>
-            <p class="px-4 text-xl">Aurora</p>
-            <p class="px-4 text-xl">Unread</p>
-        </div>
-        <div
-            class="grid h-14 grid-cols-6 items-center gap-4 rounded bg-white text-gray-800 opacity-70 hover:cursor-pointer hover:bg-sky-100"
-        >
-            <p class="px-4 text-xl">6</p>
-            <p class="px-4 text-xl">Jonathan</p>
-            <p class="px-4 text-xl">2023-09-13</p>
-            <p class="px-4 text-xl">2023-09-13</p>
-            <p class="px-4 text-xl">Echo Lake</p>
-            <p class="px-4 text-xl">Read</p>
-        </div>
-        <div
-            class="grid h-14 grid-cols-6 items-center gap-4 rounded border-l-4 border-green-400 bg-white text-gray-500 drop-shadow-md hover:cursor-pointer hover:bg-sky-100"
-        >
-            <p class="px-4 text-xl">7</p>
-            <p class="px-4 text-xl">Jonathan</p>
-            <p class="px-4 text-xl">2023-09-13</p>
-            <p class="px-4 text-xl">2023-09-13</p>
-            <p class="px-4 text-xl">Aurora</p>
-            <p class="px-4 text-xl">Unread</p>
-        </div>
-        <div
-            class="grid h-14 grid-cols-6 items-center gap-4 rounded border-l-4 border-red-400 bg-white text-gray-500 drop-shadow-md hover:cursor-pointer hover:bg-sky-100"
-        >
-            <p class="px-4 text-xl">8</p>
-            <p class="px-4 text-xl">Jonathan</p>
-            <p class="px-4 text-xl">2023-09-13</p>
-            <p class="px-4 text-xl">2023-09-13</p>
-            <p class="px-4 text-xl">Aurora</p>
-            <p class="px-4 text-xl">Missing</p>
-        </div>
-        <div
-            class="grid h-14 grid-cols-6 items-center gap-4 rounded border-l-4 border-green-400 bg-white text-gray-500 drop-shadow-md hover:cursor-pointer hover:bg-sky-100"
-        >
-            <p class="px-4 text-xl">9</p>
-            <p class="px-4 text-xl">Jonathan</p>
-            <p class="px-4 text-xl">2023-09-13</p>
-            <p class="px-4 text-xl">2023-09-13</p>
-            <p class="px-4 text-xl">Aurora</p>
-            <p class="px-4 text-xl">Unread</p>
+        <% for (let i = 0; i < reports.length; i++) { %>
+            <% if (reports[i].report_status === "missing" || reports[i].turned_in === null) { %>
+                <a class="bg-white capitalize text-gray-800 opacity-70 rounded">
+            <% } else { %>
+                <a
+                class="bg-white capitalize text-gray-500 drop-shadow-md hover:cursor-pointer hover:bg-sky-100"
+                href="/report/edit/<%= reports[i].project_name %>/<%= reports[i].report_date %>/<%= reports[i].report_id %>"
+            >
+            <% }; %>
+                <% if (reports[i].report_marked !== "no") { %>
+                    <div
+                        class="grid h-14 grid-cols-6 items-center gap-4"
+                    >
+                <% } else if (reports[i].report_status === "missing") { %>
+                    <div
+                        class="grid h-14 grid-cols-6 items-center gap-4 rounded border-l-4 border-red-400"
+                    >
+                <% } else if (reports[i].report_status === "late") { %>
+                    <div
+                        class="grid h-14 grid-cols-6 items-center gap-4 rounded border-l-4 border-yellow-400"
+                    >
+                <% } else { %>
+                    <div
+                        class="grid h-14 grid-cols-6 items-center gap-4 rounded border-l-4 border-green-400"
+                    >
+                <% }; %>
+                        <p class="px-4 text-xl"><%= i+1 %></p>
+                        <p class="px-4 text-xl">
+                            <%= reports[i].name %>
+                        </p>
+                        <p class="px-4 text-xl">
+                            <%= reports[i].project_name %>
+                        </p>
+                        <p class="px-4 text-xl">
+                            <%= reports[i].report_date %>
+                        </p>
+                        <p class="px-4 text-xl">
+                            <% if (reports[i].turned_in === null) { %>
+                                ----
+                            <% } else { %>
+                                <%= reports[i].turned_in %>
+                            <% };%>
+                        </p>
+                        <p class="px-4 text-xl">
+                            <% if (reports[i].report_marked !== "no") {%> 
+                                read 
+                            <% } else if (reports[i].report_status === "missing") { %> 
+                                missing 
+                            <% } else { %>
+                                unread
+                            <% };%>
+                        </p>
+                    </div>
+        <% }; %>
+                </a>
         </div>
     </div>
-</div>
 
 <%- include("./../partials/footer.ejs") %>

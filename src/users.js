@@ -73,6 +73,22 @@ function getReports(employeeId) {
         .where("employee_id", employeeId);
 }
 
+function getAllReports() {
+    return knex
+        .select(
+            "projects.project_name",
+            "reports.id as report_id",
+            "report_text",
+            "report_date",
+            "report_updated",
+            "firstname",
+            "lastname",
+        )
+        .from("reports")
+        .join("users", "reports.employee_id", "users.employeeid")
+        .join("projects", "reports.project_id", "projects.id");
+}
+
 // function deleteUser(id) {
 //     return knex("users").where("id", id).del();
 // }
@@ -89,6 +105,7 @@ function updateUserPassword(email, string, update) {
 }
 
 function updateUserReport(reportId, update) {
+    update.report_updated = knex.raw("CURRENT_TIMESTAMP");
     return knex("reports").where("id", reportId).update(update);
 }
 
@@ -105,4 +122,5 @@ module.exports = {
     updateUserPassword,
     getUserWithString,
     updateUserReport,
+    getAllReports,
 };

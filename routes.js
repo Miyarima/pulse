@@ -76,9 +76,8 @@ router.post(
     "/report/edit/:project/:date/:id",
     cookieJwtAuth("user"),
     (req, res) => {
-        console.log(req.body);
         updateReport(req);
-        rend.renderEditReport(req, res);
+        res.redirect("/dashboard/user");
     },
 );
 

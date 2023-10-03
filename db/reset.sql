@@ -34,6 +34,7 @@ CREATE TABLE reports (
     employee_id INTEGER NOT NULL,
     report_text TEXT NOT NULL,
     report_date DATE NOT NULL,
+    report_updated DATE,
     FOREIGN KEY (project_id) REFERENCES projects(id),
     FOREIGN KEY (employee_id) REFERENCES users(employeeid)
 );

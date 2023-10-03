@@ -15,29 +15,38 @@
         </div>
     </div>
     <div class="mb-4 grid gap-4 rounded-lg">
-        <div class="grid h-10 grid-cols-4 items-center gap-4 text-gray-500">
+        <div class="grid h-10 grid-cols-4 items-center gap-4 text-gray-500 capitalize">
             <p class="px-4 text-2xl">#</p>
-            <p class="px-4 text-2xl">Project</p>
-            <p class="px-4 text-2xl">Due</p>
-            <p class="px-4 text-2xl">Status</p>
+            <p class="px-4 text-2xl">project</p>
+            <p class="px-4 text-2xl">due</p>
+            <p class="px-4 text-2xl">status</p>
         </div>
         <% for (let i = 0; i < reports.length; i++) { %>
-        <a
-            href="/report/edit/<%= reports[i].project_name %>/<%= reports[i].report_date %>/<%= reports[i].report_id %>"
-        >
-            <% if (reports[i].report_status === "late") { %>
-            <div
-                class="grid h-14 grid-cols-4 items-center gap-4 rounded border-l-4 border-red-400 bg-white capitalize text-gray-500 drop-shadow-md hover:cursor-pointer hover:bg-sky-100"
+            <% if (reports[i].report_text !== "nothing added") { %>
+                <a class="bg-white capitalize text-gray-800 opacity-70 rounded">
+            <% } else { %>
+                <a
+                class="bg-white capitalize text-gray-500 drop-shadow-md hover:cursor-pointer hover:bg-sky-100"
+                href="/report/edit/<%= reports[i].project_name %>/<%= reports[i].report_date %>/<%= reports[i].report_id %>"
             >
-                <% } else if (reports[i].report_status === "today") { %>
-                <div
-                    class="grid h-14 grid-cols-4 items-center gap-4 rounded border-l-4 border-yellow-400 bg-white capitalize text-gray-500 drop-shadow-md hover:cursor-pointer hover:bg-sky-100"
-                >
-                    <% } else { %>
+            <% }; %>
+                <% if (reports[i].report_text !== "nothing added") { %>
                     <div
-                        class="grid h-14 grid-cols-4 items-center gap-4 rounded border-l-4 border-green-400 bg-white capitalize text-gray-500 drop-shadow-md hover:cursor-pointer hover:bg-sky-100"
+                        class="grid h-14 grid-cols-4 items-center gap-4"
                     >
-                        <% }; %>
+                <% } else if (reports[i].report_status === "late") { %>
+                    <div
+                        class="grid h-14 grid-cols-4 items-center gap-4 rounded border-l-4 border-red-400"
+                    >
+                <% } else if (reports[i].report_status === "today") { %>
+                    <div
+                        class="grid h-14 grid-cols-4 items-center gap-4 rounded border-l-4 border-yellow-400"
+                    >
+                <% } else { %>
+                    <div
+                        class="grid h-14 grid-cols-4 items-center gap-4 rounded border-l-4 border-green-400"
+                    >
+                <% }; %>
                         <p class="px-4 text-xl"><%= i+1 %></p>
                         <p class="px-4 text-xl">
                             <%= reports[i].project_name %>
@@ -47,22 +56,12 @@
                         </p>
                         <p class="px-4 text-xl">
                             <% if (reports[i].report_text === "nothing added") {
-                            %> incomplete <% }; %>
+                            %> incomplete <% } else { %> done <% }; %>
                         </p>
                     </div>
-                    <% }; %>
-                    <div
-                        class="grid h-14 grid-cols-4 items-center gap-4 rounded bg-white capitalize text-gray-800 opacity-70 hover:cursor-pointer hover:bg-sky-100"
-                    >
-                        <p class="px-4 text-xl">1</p>
-                        <p class="px-4 text-xl">aurora</p>
-                        <p class="px-4 text-xl">2023-09-13</p>
-                        <p class="px-4 text-xl">Done</p>
-                    </div>
-                </div>
-            </div>
-        </a>
-
-        <%- include("./../partials/footer.ejs") %>
+        <% }; %>
+                </a>
+        </div>
     </div>
-</div>
+
+<%- include("./../partials/footer.ejs") %>

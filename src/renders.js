@@ -21,10 +21,15 @@ function renderLogin(req, res) {
  * @param {object} req contains information
  * @param {object} res where to render
  */
-function renderDashboard(req, res) {
+async function renderDashboard(req, res) {
+    let reports = await db.getAllReports();
+
+    reports = format.formatAllReports(reports);
+
     res.render("index.ejs", {
         title: "Pulse | Dashboard",
         user: `${req.firstname} ${req.lastname}`,
+        reports: reports,
     });
 }
 
@@ -41,7 +46,7 @@ async function renderDashboardUser(req, res) {
 
     let reports = await db.getReports(employeeId[0].employeeid);
 
-    reports = format(reports);
+    reports = format.formatReports(reports);
 
     res.render("user-dashboard.ejs", {
         title: "Pulse | Dashboard",
