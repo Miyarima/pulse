@@ -1,0 +1,43 @@
+<%- include("./../partials/user-header.ejs") %>
+
+<div class="p-4">
+    <div class="mb-14 grid gap-4">
+        <div class="flex h-24 items-center">
+            <p class="font-sans text-5xl font-semibold text-gray-700">
+                Edit report
+            </p>
+        </div>
+    </div>
+    <h2 class="my-4 font-sans text-xl font-medium">
+        Project: <span class="font-normal"><%= project_name %></span>
+    </h2>
+    <h2 class="my-4 font-sans text-xl font-medium">
+        Due date: <span class="font-normal"><%= report_date %></span>
+    </h2>
+    <form method="POST">
+        <div class="mb-6" enctype="application/x-www-form-urlencoded">
+            <label
+                for="message"
+                class="mb-2 block font-sans font-medium text-gray-900"
+                >Message:</label
+            >
+            <textarea
+                id="message"
+                rows="20"
+                class="block w-full rounded border border-gray-300 bg-white p-2.5 text-gray-800 focus:border-blue-500 focus:outline-none"
+                placeholder="Write your report here..."
+                name="report"
+            ></textarea>
+        </div>
+        <div class="flex justify-center">
+            <input
+                class="my-6 rounded-lg bg-sky-400 px-12 py-3 font-sans text-lg font-bold text-white transition-colors hover:cursor-pointer hover:bg-sky-500 active:bg-sky-600"
+                type="submit"
+                name="doit"
+                value="Send Report"
+            />
+        </div>
+    </form>
+</div>
+
+<%- include("./../partials/footer.ejs") %>

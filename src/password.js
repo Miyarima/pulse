@@ -32,10 +32,10 @@ const changePassowrd = async (req, res) => {
     if (userExsist) {
         db.updateUserPassword(email, string, update)
             .then((result) => {
-                console.log("Passwrod update successfully:", result);
+                console.log("Password updated successfully:", result);
             })
             .catch((error) => {
-                console.error("Error inserting user:", error);
+                console.error("Error inserting password:", error);
             });
         return res.redirect("/");
     }

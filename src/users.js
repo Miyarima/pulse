@@ -88,6 +88,10 @@ function updateUserPassword(email, string, update) {
         .update(update);
 }
 
+function updateUserReport(reportId, update) {
+    return knex("reports").where("id", reportId).update(update);
+}
+
 module.exports = {
     getAllUsers,
     getUser,
@@ -100,4 +104,5 @@ module.exports = {
     getReports,
     updateUserPassword,
     getUserWithString,
+    updateUserReport,
 };

@@ -100,6 +100,21 @@ function renderSetup(req, res) {
     });
 }
 
+/**
+ * Renders the setup page
+ * @param {object} req contains information
+ * @param {object} res where to render
+ */
+function renderEditReport(req, res) {
+    res.render("edit-report.ejs", {
+        title: "Pulse | Edit your report",
+        user: `${req.firstname} ${req.lastname}`,
+        project_name: req.params.project,
+        report_date: req.params.date,
+        project_id: req.params.id,
+    });
+}
+
 module.exports = {
     renderLogin,
     renderDashboard,
@@ -107,4 +122,5 @@ module.exports = {
     renderProject,
     renderDashboardUser,
     renderSetup,
+    renderEditReport,
 };

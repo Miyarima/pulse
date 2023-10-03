@@ -11,6 +11,7 @@ const router = express.Router();
 const upload = multer({ dest: "uploads/" });
 const password = require("./src/password.js");
 const rend = require("./src/renders.js");
+const updateReport = require("./src/update-report.js");
 
 router.get("/", async (req, res) => {
     rend.renderLogin(req, res);
@@ -62,6 +63,24 @@ router.get("/setup/:email/:string", (req, res) => {
 router.post("/setup/:email/:string", (req, res) => {
     password(req, res);
 });
+
+router.get(
+    "/report/edit/:project/:date/:id",
+    cookieJwtAuth("user"),
+    (req, res) => {
+        rend.renderEditReport(req, res);
+    },
+);
+
+router.post(
+    "/report/edit/:project/:date/:id",
+    cookieJwtAuth("user"),
+    (req, res) => {
+        console.log(req.body);
+        updateReport(req);
+        rend.renderEditReport(req, res);
+    },
+);
 
 router.use((req, res) => {
     res.status(404).render("404.ejs", {
