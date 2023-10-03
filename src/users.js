@@ -89,6 +89,15 @@ function getAllReports() {
         .join("projects", "reports.project_id", "projects.id");
 }
 
+function getReportText(reportId) {
+    return knex
+        .select("report_text")
+        .from("reports")
+        .join("users", "reports.employee_id", "users.employeeid")
+        .join("projects", "reports.project_id", "projects.id")
+        .where("reports.id", reportId);
+}
+
 // function deleteUser(id) {
 //     return knex("users").where("id", id).del();
 // }
@@ -123,4 +132,5 @@ module.exports = {
     getUserWithString,
     updateUserReport,
     getAllReports,
+    getReportText,
 };

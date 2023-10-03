@@ -106,7 +106,7 @@ function renderSetup(req, res) {
 }
 
 /**
- * Renders the setup page
+ * Renders the edit report page
  * @param {object} req contains information
  * @param {object} res where to render
  */
@@ -120,6 +120,25 @@ function renderEditReport(req, res) {
     });
 }
 
+/**
+ * Renders the view report page
+ * @param {object} req contains information
+ * @param {object} res where to render
+ */
+async function renderViewReport(req, res) {
+    const text = await db.getReportText(req.params.id);
+
+    res.render("view-report.ejs", {
+        title: "Pulse | View report",
+        user: `${req.firstname} ${req.lastname}`,
+        project_name: req.params.project,
+        report_date: req.params.date,
+        project_id: req.params.id,
+        name: req.params.name,
+        text: text[0].report_text,
+    });
+}
+
 module.exports = {
     renderLogin,
     renderDashboard,
@@ -128,4 +147,5 @@ module.exports = {
     renderDashboardUser,
     renderSetup,
     renderEditReport,
+    renderViewReport,
 };

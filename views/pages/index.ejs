@@ -29,7 +29,7 @@
             <% } else { %>
                 <a
                 class="bg-white capitalize text-gray-500 drop-shadow-md hover:cursor-pointer hover:bg-sky-100"
-                href="/report/edit/<%= reports[i].project_name %>/<%= reports[i].report_date %>/<%= reports[i].report_id %>"
+                href="/report/view/<%= reports[i].project_name %>/<%= reports[i].turned_in %>/<%= reports[i].name %>/<%= reports[i].report_id %>"
             >
             <% }; %>
                 <% if (reports[i].report_marked !== "no") { %>

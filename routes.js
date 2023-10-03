@@ -81,6 +81,14 @@ router.post(
     },
 );
 
+router.get(
+    "/report/view/:project/:date/:name/:id",
+    cookieJwtAuth("admin"),
+    (req, res) => {
+        rend.renderViewReport(req, res);
+    },
+);
+
 router.use((req, res) => {
     res.status(404).render("404.ejs", {
         title: "Pulse | Page not Found",
