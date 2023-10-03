@@ -18,7 +18,7 @@ function sendMail(email, firstname, string) {
         html: `
             <h2>${firstname} Please finish setting up you account</h2>
             <p>Press the link below</p>
-            <a href="http://localhost:1338/setup/${email}/${string}">Activate</a>
+            <a href="http://localhost:1337/setup/${email}/${string}">Activate</a>
         `,
     };
 

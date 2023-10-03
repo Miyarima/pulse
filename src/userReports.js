@@ -26,11 +26,13 @@ function status(date) {
  */
 const formatReports = (reports) => {
     let fixedReports = [];
+
     const options = {
         year: "numeric",
         month: "numeric",
         day: "numeric",
     };
+
     reports.map((e) => {
         fixedReports.push({
             report_id: e.report_id,

@@ -8,6 +8,17 @@ const db = require("./users.js");
  * @returns an array with the names
  */
 function parseNames(names) {
+    if (typeof names === "string") {
+        const nameParts = names.split(" ");
+        console.log(nameParts);
+        return [
+            {
+                firstname: nameParts[0],
+                lastname: nameParts[1],
+            },
+        ];
+    }
+
     const nameList = [];
 
     for (const fullName of names) {

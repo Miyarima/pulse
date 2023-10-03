@@ -88,10 +88,12 @@ async function renderProject(req, res) {
     });
 }
 
+/**
+ * Renders the setup page
+ * @param {object} req contains information
+ * @param {object} res where to render
+ */
 function renderSetup(req, res) {
-    // const email = req.params.email;
-    // const string = req.params.string;
-
     res.render("setup.ejs", {
         title: "Pulse | Set up Account",
         password: "",

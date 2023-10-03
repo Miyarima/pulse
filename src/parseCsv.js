@@ -15,7 +15,7 @@ const rand = require("crypto");
  */
 const addUsersToDb = (users) => {
     users.forEach(async (e) => {
-        const password = "password";
+        const password = rand.randomBytes(64).toString("hex");
         const hash = await bcrypt.hash(password, 10);
         const string = rand.randomBytes(64).toString("hex");
 
