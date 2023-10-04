@@ -31,7 +31,7 @@ function allReportsStatus(due, turnedIn) {
     if (turnedIn === null) {
         const today = Date.now();
 
-        if (due > today) {
+        if (due >= today) {
             return "fine";
         }
 
@@ -40,11 +40,23 @@ function allReportsStatus(due, turnedIn) {
 
     const turnedInDate = new Date(turnedIn.split(" ")[0]);
 
-    if (dueDate > turnedInDate) {
+    if (dueDate >= turnedInDate) {
         return "fine";
     }
 
     return "late";
+}
+
+/**
+ * Will remove the time from the date
+ * @param {date} date to beformated
+ * @returns a formated date
+ */
+function removeTimeFromDate(date) {
+    if (date !== null) {
+        return date.split(" ")[0];
+    }
+    return null;
 }
 
 /**
@@ -103,7 +115,7 @@ const formatAllReports = (reports) => {
                     "sv-SE",
                     options,
                 ),
-                turned_in: e.report_updated,
+                turned_in: removeTimeFromDate(e.report_updated),
                 report_status: allReportsStatus(
                     e.report_date,
                     e.report_updated,
