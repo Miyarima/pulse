@@ -120,7 +120,7 @@ const formatAllReports = (reports) => {
                     e.report_date,
                     e.report_updated,
                 ),
-                report_marked: "no",
+                report_marked: e.report_marked,
             });
         }
     });

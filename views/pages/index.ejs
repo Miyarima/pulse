@@ -23,61 +23,76 @@
             <p class="px-4 text-2xl">turned in</p>
             <p class="px-4 text-2xl">status</p>
         </div>
-        <% for (let i = 0; i < reports.length; i++) { %>
-            <% if (reports[i].report_status === "missing" || reports[i].turned_in === null) { %>
-                <a class="bg-white capitalize text-gray-800 opacity-70 rounded">
-            <% } else { %>
-                <a
-                class="bg-white capitalize text-gray-500 drop-shadow-md hover:cursor-pointer hover:bg-sky-100"
-                href="/report/view/<%= reports[i].project_name %>/<%= reports[i].turned_in %>/<%= reports[i].name %>/<%= reports[i].report_id %>"
-            >
-            <% }; %>
-                <% if (reports[i].report_marked !== "no") { %>
-                    <div
-                        class="grid h-14 grid-cols-6 items-center gap-4"
-                    >
-                <% } else if (reports[i].report_status === "missing") { %>
-                    <div
-                        class="grid h-14 grid-cols-6 items-center gap-4 rounded border-l-4 border-red-400"
-                    >
-                <% } else if (reports[i].report_status === "late") { %>
-                    <div
-                        class="grid h-14 grid-cols-6 items-center gap-4 rounded border-l-4 border-yellow-400"
-                    >
+        <% if (reports.length >= 1 ) { %>
+            <% for (let i = 0; i < reports.length; i++) { %>
+                <% if (reports[i].report_status === "missing" || reports[i].turned_in === null) { %>
+                    <a class="bg-white capitalize text-gray-800 opacity-70 rounded">
+                <% } else if (reports[i].report_marked === "yes") { %>
+                    <a
+                    class="bg-white capitalize text-gray-800 opacity-70 rounded hover:cursor-pointer hover:bg-sky-100"
+                    href="/report/view/<%= reports[i].project_name %>/<%= reports[i].turned_in %>/<%= reports[i].name %>/<%= reports[i].report_id %>?read=yes"
+                >
                 <% } else { %>
-                    <div
-                        class="grid h-14 grid-cols-6 items-center gap-4 rounded border-l-4 border-green-400"
-                    >
+                    <a
+                    class="bg-white capitalize text-gray-500 drop-shadow-md hover:cursor-pointer hover:bg-sky-100"
+                    href="/report/view/<%= reports[i].project_name %>/<%= reports[i].turned_in %>/<%= reports[i].name %>/<%= reports[i].report_id %>"
+                >
                 <% }; %>
-                        <p class="px-4 text-xl"><%= i+1 %></p>
-                        <p class="px-4 text-xl">
-                            <%= reports[i].name %>
-                        </p>
-                        <p class="px-4 text-xl">
-                            <%= reports[i].project_name %>
-                        </p>
-                        <p class="px-4 text-xl">
-                            <%= reports[i].report_date %>
-                        </p>
-                        <p class="px-4 text-xl">
-                            <% if (reports[i].turned_in === null) { %>
-                                ----
-                            <% } else { %>
-                                <%= reports[i].turned_in %>
-                            <% };%>
-                        </p>
-                        <p class="px-4 text-xl">
-                            <% if (reports[i].report_marked !== "no") {%> 
-                                read 
-                            <% } else if (reports[i].report_status === "missing") { %> 
-                                missing 
-                            <% } else { %>
-                                unread
-                            <% };%>
-                        </p>
-                    </div>
+                    <% if (reports[i].report_marked === "yes") { %>
+                        <div
+                            class="grid h-14 grid-cols-6 items-center gap-4"
+                        >
+                    <% } else if (reports[i].report_status === "missing") { %>
+                        <div
+                            class="grid h-14 grid-cols-6 items-center gap-4 rounded border-l-4 border-red-400"
+                        >
+                    <% } else if (reports[i].report_status === "late") { %>
+                        <div
+                            class="grid h-14 grid-cols-6 items-center gap-4 rounded border-l-4 border-yellow-400"
+                        >
+                    <% } else { %>
+                        <div
+                            class="grid h-14 grid-cols-6 items-center gap-4 rounded border-l-4 border-green-400"
+                        >
+                    <% }; %>
+                            <p class="px-4 text-xl"><%= i+1 %></p>
+                            <p class="px-4 text-xl">
+                                <%= reports[i].name %>
+                            </p>
+                            <p class="px-4 text-xl">
+                                <%= reports[i].project_name %>
+                            </p>
+                            <p class="px-4 text-xl">
+                                <%= reports[i].report_date %>
+                            </p>
+                            <p class="px-4 text-xl">
+                                <% if (reports[i].turned_in === null) { %>
+                                    ----
+                                <% } else { %>
+                                    <%= reports[i].turned_in %>
+                                <% };%>
+                            </p>
+                            <p class="px-4 text-xl">
+                                <% if (reports[i].report_marked === "yes") {%> 
+                                    read 
+                                <% } else if (reports[i].report_status === "missing") { %> 
+                                    missing 
+                                <% } else { %>
+                                    unread
+                                <% };%>
+                            </p>
+                        </div>
+                    </a>
+            <% }; %>
+        <% } else { %>
+            <div
+                    class="my-10 flex h-14 justify-center gap-4 rounded text-gray-500"
+                >
+                    <p class="px-4 text-2xl">
+                        There are currently no reports turned in.
+                    </p>
+            </div>
         <% }; %>
-                </a>
         </div>
     </div>
 

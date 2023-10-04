@@ -11,7 +11,7 @@ const router = express.Router();
 const upload = multer({ dest: "uploads/" });
 const password = require("./src/password.js");
 const rend = require("./src/renders.js");
-const updateReport = require("./src/update-report.js");
+const update = require("./src/update-report.js");
 
 router.get("/", async (req, res) => {
     rend.renderLogin(req, res);
@@ -76,7 +76,7 @@ router.post(
     "/report/edit/:project/:date/:id",
     cookieJwtAuth("user"),
     (req, res) => {
-        updateReport(req);
+        update.updateReportText(req);
         res.redirect("/dashboard/user");
     },
 );
@@ -86,6 +86,15 @@ router.get(
     cookieJwtAuth("admin"),
     (req, res) => {
         rend.renderViewReport(req, res);
+    },
+);
+
+router.post(
+    "/report/view/:project/:date/:name/:id",
+    cookieJwtAuth("admin"),
+    (req, res) => {
+        update.updateReportReadStatus(req);
+        res.redirect("/dashboard");
     },
 );
 

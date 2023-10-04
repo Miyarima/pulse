@@ -136,6 +136,7 @@ async function renderViewReport(req, res) {
         project_id: req.params.id,
         name: req.params.name,
         text: text[0].report_text,
+        read: req.query.read ? "yes" : "no",
     });
 }
 
