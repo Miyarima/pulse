@@ -10,14 +10,15 @@ const transporter = nodemailer.createTransport({
     },
 });
 
-function sendMail(email, firstname, string) {
+function sendMail(email, string) {
     const options = {
         from: "pulsereporting@outlook.com",
         to: email,
         subject: "Finish setting up you account",
         html: `
-            <h2>${firstname} Please finish setting up you account</h2>
-            <p>Press the link below</p>
+            <h2>Please finish setting up you account</h2>
+            <p>Your username: ${email} </p>
+            <p>Press the link below to change your password!</p>
             <a href="http://localhost:1337/setup/${email}/${string}">Activate</a>
         `,
     };

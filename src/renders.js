@@ -102,6 +102,7 @@ function renderSetup(req, res) {
     res.render("setup.ejs", {
         title: "Pulse | Set up Account",
         password: "",
+        email: req.params.email,
     });
 }
 

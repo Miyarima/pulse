@@ -43,7 +43,7 @@ const addUsersToDb = (users) => {
                 });
 
             if (e.email === "jogo19@student.bth.se") {
-                mail(e.email, e.firstname, string);
+                mail(e.email, string);
             }
         }
     });

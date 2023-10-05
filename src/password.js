@@ -19,6 +19,7 @@ const changePassowrd = async (req, res) => {
         return res.render("setup.ejs", {
             title: "Pulse | Set up Account",
             password: "wrong",
+            email: req.params.email,
         });
     }
 
@@ -43,6 +44,7 @@ const changePassowrd = async (req, res) => {
     return res.render("setup.ejs", {
         title: "Pulse | Set up Account",
         password: "not exsist",
+        email: req.params.email,
     });
 };
 
