@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="/style/output.css" />
         <script src="https://use.fontawesome.com/0aee473986.js"></script>
     </head>
-    <body>
+    <body class="bg-gray-100">
         <header></header>
         <aside
             class="fixed left-0 top-0 z-40 h-screen w-64 -translate-x-full transition-transform sm:translate-x-0"
@@ -60,7 +60,9 @@
                     </ul>
                 </div>
                 <div class="mt-auto">
-                    <div class="flex items-center p-2 font-sans text-white capitalize">
+                    <div
+                        class="flex items-center p-2 font-sans capitalize text-white"
+                    >
                         <img
                             src="/img/user-white.png"
                             class="mr-3 h-5"
@@ -71,7 +73,7 @@
                 </div>
                 <form action="/logout" method="POST">
                     <input
-                        class="rounded w-full bg-sky-400 px-10 py-2 font-sans font-bold text-white transition-colors hover:cursor-pointer hover:bg-sky-500 active:bg-sky-600"
+                        class="w-full rounded bg-sky-400 px-10 py-2 font-sans font-bold text-white transition-colors hover:cursor-pointer hover:bg-sky-500 active:bg-sky-600"
                         type="submit"
                         name="doit"
                         value="Logout"

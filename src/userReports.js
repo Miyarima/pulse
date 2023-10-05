@@ -101,7 +101,9 @@ const formatAllReports = (reports) => {
         month: "numeric",
         day: "numeric",
     };
-    const today = Date.now();
+
+    const today = new Date();
+    today.setDate(today.getDate() + 1);
 
     reports.map((e) => {
         const reportDate = new Date(e.report_date);

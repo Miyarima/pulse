@@ -75,7 +75,7 @@
                             <p class="px-4 text-xl">
                                 <% if (reports[i].report_marked === "yes") {%> 
                                     read 
-                                <% } else if (reports[i].report_status === "missing") { %> 
+                                <% } else if (reports[i].report_status === "missing" || reports[i].turned_in === null) { %> 
                                     missing 
                                 <% } else { %>
                                     unread
