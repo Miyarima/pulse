@@ -1,27 +1,32 @@
 "use-strict";
 
 document.addEventListener("DOMContentLoaded", function () {
-    const notification = document.getElementById("notification");
+    const notification = document.querySelectorAll("#notification");
 
-    if (notification) {
-        let progressBar = document.getElementById("progress-bar");
-        let currentWidth = 0;
-        progressBar = progressBar.children[0];
+    for (let i = 0; i < notification.length; i++) {
+        if (notification[i]) {
+            let progressBar = notification[i].querySelector("#progress-bar");
+            let currentWidth = 0;
+            progressBar = progressBar.children[0];
 
-        setTimeout(function () {
-            notification.classList.remove("grid");
-            notification.classList.add("hidden");
-        }, 3000);
+            setTimeout(
+                function () {
+                    notification[i].classList.remove("grid");
+                    notification[i].classList.add("hidden");
+                },
+                3500 + i * 300,
+            );
 
-        const updateProgressBar = () => {
-            currentWidth += 1;
-            progressBar.style.width = `${currentWidth}%`;
+            const updateProgressBar = () => {
+                currentWidth += 1;
+                progressBar.style.width = `${currentWidth}%`;
 
-            if (currentWidth >= 100) {
-                clearInterval(progressInterval);
-            }
-        };
+                if (currentWidth >= 100) {
+                    clearInterval(progressInterval);
+                }
+            };
 
-        const progressInterval = setInterval(updateProgressBar, 30);
+            const progressInterval = setInterval(updateProgressBar, 35 + i * 3);
+        }
     }
 });

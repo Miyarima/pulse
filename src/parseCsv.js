@@ -6,15 +6,16 @@ const db = require("./users.js");
 const bcrypt = require("bcrypt");
 const path = require("path");
 const upload = require("./renders.js").renderUpload;
-const mail = require("./mail.js");
+// const mail = require("./mail.js");
 const rand = require("crypto");
 
 /**
  * Adds all users in the array to the database
  * @param {Array} users all users
  */
-const addUsersToDb = (users) => {
-    users.forEach(async (e) => {
+const addUsersToDb = async (users) => {
+    let inserts = [];
+    for (const e of users) {
         const password = rand.randomBytes(64).toString("hex");
         const hash = await bcrypt.hash(password, 10);
         const string = rand.randomBytes(64).toString("hex");
@@ -42,11 +43,19 @@ const addUsersToDb = (users) => {
                     console.error("Error inserting user:", error);
                 });
 
-            if (e.email === "jogo19@student.bth.se") {
-                mail(e.email, string);
-            }
+            // if (e.email === "jogo19@student.bth.se") {
+            //     mail(e.email, string);
+            // }
+
+            inserts.push({
+                firstname: e.firstname,
+                lastname: e.lastname,
+                email: e.email,
+            });
         }
-    });
+    }
+
+    return inserts;
 };
 
 /**
@@ -63,7 +72,7 @@ const fileFilter = (file) => {
 };
 
 /**
- * If a file was sent, the data will be parsed and pushed to am array
+ * If a file was sent, the data will be parsed and pushed to an array
  * @param {object} req contains the file
  * @param {object} res where to load the page
  * @returns If no files was uploaded
@@ -91,9 +100,9 @@ const parseCsv = (req, res) => {
         .on("data", (data) => {
             results.push(data);
         })
-        .on("end", () => {
-            addUsersToDb(results);
-            upload(req, res, results.length, "");
+        .on("end", async () => {
+            const insert = await addUsersToDb(results);
+            upload(req, res, insert, "");
         });
 };
 

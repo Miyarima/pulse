@@ -100,10 +100,6 @@ function getReportText(reportId) {
         .where("reports.id", reportId);
 }
 
-// function deleteUser(id) {
-//     return knex("users").where("id", id).del();
-// }
-
 function getUserWithString(email, string) {
     return knex("users").where("email", email).where("first", string);
 }

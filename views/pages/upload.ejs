@@ -49,20 +49,46 @@
         </form>
     </div>
     <% if (upload !== "") { %> <% if (upload === "failed") { %>
-    <div class="mb-4 grid gap-4">
-        <div class="flex h-14 justify-center gap-4 text-red-400">
-            <p class="px-4 text-xl"><%= message %></p>
+    <div id="notification" class="mb-4 gap-4">
+        <div
+            class="mx-auto grid w-1/4 gap-2 rounded bg-white text-center font-sans text-red-400 drop-shadow"
+        >
+            <p class="p-4"><%= message %></p>
+            <div id="progress-bar" class="h-1 w-full rounded-b bg-gray-200">
+                <div
+                    class="h-1 rounded-b bg-red-400 transition-colors"
+                    style="width: 0%"
+                ></div>
+            </div>
         </div>
     </div>
     <% } else { %>
-    <div class="mb-4 grid gap-4">
-        <div class="flex h-14 justify-center gap-4 text-gray-500">
-            <p class="px-4 text-xl">
-                You have successfully uploaded <%= upload %> new users
-            </p>
+    <div class="grid gap-2 md:grid-cols-2 lg:grid-cols-3">
+        <% for (let i = 0; i < email.length; i++) { %>
+        <div id="notification" class="mb-4 gap-4">
+            <div
+                class="mx-auto grid w-full gap-2 rounded bg-white text-center font-sans text-gray-900 drop-shadow"
+            >
+                <div class="grid gap-2 py-4">
+                    <p class="px-4 pb-4 text-lg">
+                        <%= email[i].firstname %> <%= email[i].lastname %> has
+                        been added
+                    </p>
+                    <p class="px-4">Sent email to: <%= email[i].email %></p>
+                </div>
+                <div id="progress-bar" class="h-1 w-full rounded-b bg-gray-200">
+                    <div
+                        class="h-1 rounded-b bg-green-400 transition-colors"
+                        style="width: 0%"
+                    ></div>
+                </div>
+            </div>
         </div>
+        <% }; %>
     </div>
     <% }; %> <% }; %>
 </div>
+
+<script src="/src/functions.js"></script>
 
 <%- include("./../partials/footer.ejs") %>

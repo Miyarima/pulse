@@ -63,9 +63,16 @@ async function renderDashboardUser(req, res) {
  * @param {string} message message to be displayed
  */
 function renderUpload(req, res, upload, message) {
+    let users;
+
+    if (upload !== "" && upload !== "failed") {
+        users = upload;
+    }
+
     res.render("upload.ejs", {
         title: "Pulse | Upload users",
         upload: upload,
+        email: users,
         message: message,
         user: `${req.firstname} ${req.lastname}`,
     });
