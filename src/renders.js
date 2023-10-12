@@ -78,9 +78,17 @@ function renderUpload(req, res, upload, message) {
  */
 async function renderProject(req, res) {
     let projectName = "";
+    let startDate = "";
+    let endDate = "";
+    let frequency = "";
+    let teamCount = 0;
 
     if (req.body.project_name) {
         projectName = req.body.project_name;
+        startDate = req.body.start_date;
+        endDate = req.body.end_date;
+        frequency = req.body.report_frequency;
+        teamCount = req.body.team_members.length;
     }
 
     const teamMembers = await db.getSpecificUsers("user");
@@ -89,6 +97,10 @@ async function renderProject(req, res) {
         title: "Pulse | Create projects",
         user: `${req.firstname} ${req.lastname}`,
         project: projectName,
+        startDate: startDate,
+        endDate: endDate,
+        frequency: frequency,
+        count: teamCount,
         team: teamMembers,
     });
 }

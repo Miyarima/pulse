@@ -9,11 +9,27 @@
         </div>
     </div>
     <% if (project !== "") { %>
-    <div class="mb-4 grid gap-4">
-        <div class="flex h-14 justify-center gap-4 text-gray-500">
-            <p class="px-4 text-xl">
-                The project <%= project %> has been created
-            </p>
+    <div id="notification" class="mb-4 grid gap-4">
+        <div
+            class="mx-auto grid w-fit justify-center gap-2 rounded bg-white text-center font-sans capitalize text-gray-900 drop-shadow"
+        >
+            <div class="grid gap-2 p-4">
+                <p class="px-4 pb-4 text-lg"><%= project %> has been created</p>
+                <div class="flex justify-between">
+                    <p class="px-4 text-sm">start date: <%= startDate %></p>
+                    <p class="px-4 text-sm">end date: <%= endDate %></p>
+                </div>
+                <div class="flex justify-between">
+                    <p class="px-4 text-sm">frequency: <%= frequency %></p>
+                    <p class="px-4 text-sm">Team count: <%= count %></p>
+                </div>
+            </div>
+            <div id="progress-bar" class="h-1 w-full rounded-b bg-gray-200">
+                <div
+                    class="h-1 rounded-b bg-blue-400 transition-colors"
+                    style="width: 0%"
+                ></div>
+            </div>
         </div>
     </div>
     <% }; %>
@@ -129,5 +145,7 @@
         </div>
     </form>
 </div>
+
+<script src="/src/functions.js"></script>
 
 <%- include("./../partials/footer.ejs") %>
