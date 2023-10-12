@@ -6,7 +6,7 @@ const db = require("./users.js");
 const bcrypt = require("bcrypt");
 const path = require("path");
 const upload = require("./renders.js").renderUpload;
-// const mail = require("./mail.js");
+const mail = require("./mail.js");
 const rand = require("crypto");
 
 /**
@@ -43,9 +43,9 @@ const addUsersToDb = async (users) => {
                     console.error("Error inserting user:", error);
                 });
 
-            // if (e.email === "jogo19@student.bth.se") {
-            //     mail(e.email, string);
-            // }
+            if (e.email === "jogo19@student.bth.se") {
+                mail(e.email, string);
+            }
 
             inserts.push({
                 firstname: e.firstname,
