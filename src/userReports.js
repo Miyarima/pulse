@@ -102,9 +102,6 @@ const formatAllReports = (reports) => {
         day: "numeric",
     };
 
-    // const today = new Date();
-    // today.setDate(today.getDate() + 1);
-
     reports.map((e) => {
         fixedReports.push({
             project_name: e.project_name,

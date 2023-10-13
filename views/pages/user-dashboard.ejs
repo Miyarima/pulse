@@ -22,7 +22,7 @@
             <p class="px-4 text-2xl">due</p>
             <p class="px-4 text-2xl">status</p>
         </div>
-        <div class="max-h-96 overflow-y-scroll grid gap-4">
+        <div class="max-h-96 overflow-y-scroll grid gap-4 py-4">
         <% let counter = 0; %>
         <% for (let i = 0; i < reports.length; i++) { %>
             <% if (reports[i].report_text === "nothing added") { %>
@@ -88,7 +88,7 @@
             <p class="px-4 text-2xl">due</p>
             <p class="px-4 text-2xl">status</p>
         </div>
-        <div class="max-h-96 overflow-y-scroll grid gap-4">
+        <div class="max-h-96 overflow-y-scroll grid gap-4 py-4">
         <% let done = 0; %>
         <% for (let i = 0; i < reports.length; i++) { %>
             <% if (reports[i].report_text !== "nothing added") { %>
