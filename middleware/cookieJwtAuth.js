@@ -10,13 +10,16 @@ const users = require("../src/users.js");
  * @param {string} role the role which has access to the page
  * @returns if the user isn't authorized
  */
-const cookieJwtAuth = (role) => {
+const cookieJwtAuth = (roles) => {
     return async (req, res, next) => {
         const token = req.cookies.token;
         try {
             const user = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
             const inDb = await users.getUser(user.username);
-            if (inDb[0].email === user.username && inDb[0].role === role) {
+            if (
+                inDb[0].email === user.username &&
+                roles.includes(inDb[0].role)
+            ) {
                 req.firstname = inDb[0].firstname;
                 req.lastname = inDb[0].lastname;
                 next();

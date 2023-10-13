@@ -15,21 +15,22 @@
         </div>
     </div>
     <div class="mb-4 grid gap-4 rounded-lg">
-        <div class="grid h-10 grid-cols-4 items-center gap-4 text-gray-500 capitalize border-b-2 border-gray-200">
+        <h2 class="px-4 font-sans text-xl font-semibold text-gray-600">Pending / Missing</h2>
+        <div class="grid h-10 grid-cols-4 items-center gap-4 text-gray-500 capitalize border-b-2 border-gray-200 pb-6">
             <p class="px-4 text-2xl">#</p>
             <p class="px-4 text-2xl">project</p>
             <p class="px-4 text-2xl">due</p>
             <p class="px-4 text-2xl">status</p>
         </div>
+        <div class="max-h-96 overflow-y-scroll grid gap-4">
+        <% let counter = 0; %>
         <% for (let i = 0; i < reports.length; i++) { %>
-            <% if (reports[i].report_text !== "nothing added") { %>
-                <a class="bg-white capitalize text-gray-800 opacity-70 rounded">
-            <% } else { %>
+            <% if (reports[i].report_text === "nothing added") { %>
+                <% counter++; %>
                 <a
                 class="bg-white capitalize text-gray-500 drop-shadow-md hover:cursor-pointer hover:bg-sky-100"
                 href="/report/edit/<%= reports[i].project_name %>/<%= reports[i].report_date %>/<%= reports[i].report_id %>"
             >
-            <% }; %>
                 <% if (reports[i].report_text !== "nothing added") { %>
                     <div
                         class="grid h-14 grid-cols-4 items-center gap-4"
@@ -47,7 +48,7 @@
                         class="grid h-14 grid-cols-4 items-center gap-4 rounded border-l-4 border-green-400"
                     >
                 <% }; %>
-                        <p class="px-4 text-xl"><%= i+1 %></p>
+                        <p class="px-4 text-xl"><%= counter %></p>
                         <p class="px-4 text-xl">
                             <%= reports[i].project_name %>
                         </p>
@@ -59,8 +60,58 @@
                             %> incomplete <% } else { %> done <% }; %>
                         </p>
                     </div>
+                </a>
+            <% }; %>
+        <% }; %>
+        </div>
+        </div>
+        <div class="mb-4 grid gap-4 rounded-lg my-20">
+        <h2 class="px-4 font-sans text-xl font-semibold text-gray-600">Sent</h2>
+        <div class="grid h-10 grid-cols-4 items-center gap-4 text-gray-500 capitalize border-b-2 border-gray-200 pb-6">
+            <p class="px-4 text-2xl">#</p>
+            <p class="px-4 text-2xl">project</p>
+            <p class="px-4 text-2xl">due</p>
+            <p class="px-4 text-2xl">status</p>
+        </div>
+        <div class="max-h-96 overflow-y-scroll grid gap-4">
+        <% let done = 0; %>
+        <% for (let i = 0; i < reports.length; i++) { %>
+            <% if (reports[i].report_text !== "nothing added") { %>
+                <% done++; %>
+                <a class="bg-white capitalize text-gray-800 opacity-70 rounded">
+                <% if (reports[i].report_text !== "nothing added") { %>
+                    <div
+                        class="grid h-14 grid-cols-4 items-center gap-4"
+                    >
+                <% } else if (reports[i].report_status === "late") { %>
+                    <div
+                        class="grid h-14 grid-cols-4 items-center gap-4 rounded border-l-4 border-red-400"
+                    >
+                <% } else if (reports[i].report_status === "today") { %>
+                    <div
+                        class="grid h-14 grid-cols-4 items-center gap-4 rounded border-l-4 border-yellow-400"
+                    >
+                <% } else { %>
+                    <div
+                        class="grid h-14 grid-cols-4 items-center gap-4 rounded border-l-4 border-green-400"
+                    >
+                <% }; %>
+                        <p class="px-4 text-xl"><%= done %></p>
+                        <p class="px-4 text-xl">
+                            <%= reports[i].project_name %>
+                        </p>
+                        <p class="px-4 text-xl">
+                            <%= reports[i].report_date %>
+                        </p>
+                        <p class="px-4 text-xl">
+                            <% if (reports[i].report_text === "nothing added") {
+                            %> incomplete <% } else { %> done <% }; %>
+                        </p>
+                    </div>
+            <% }; %>
         <% }; %>
                 </a>
+            </div>
         </div>
     </div>
 

@@ -83,7 +83,7 @@ router.post(
 
 router.get(
     "/report/view/:project/:date/:name/:id",
-    cookieJwtAuth("admin"),
+    cookieJwtAuth(["admin", "user"]),
     (req, res) => {
         rend.renderViewReport(req, res);
     },
