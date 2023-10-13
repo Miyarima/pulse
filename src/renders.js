@@ -4,6 +4,40 @@ const db = require("./users.js");
 const format = require("./userReports.js");
 
 /**
+ * Creats an array with the names
+ * @param {array} names an array with objects containing people
+ * @returns an array with the names
+ */
+function parseNames(names) {
+    if (typeof names === "string") {
+        const nameParts = names.split(" ");
+        return [
+            {
+                firstname: nameParts[0],
+                lastname: nameParts[1],
+            },
+        ];
+    }
+
+    const nameList = [];
+
+    for (const fullName of names) {
+        const nameParts = fullName.split(" ");
+
+        if (nameParts.length >= 2) {
+            const nameObject = {
+                firstname: nameParts[0],
+                lastname: nameParts.slice(1).join(" "),
+            };
+
+            nameList.push(nameObject);
+        }
+    }
+
+    return nameList;
+}
+
+/**
  * Renders the login page
  * @param {object} req contains information
  * @param {object} res where to render
@@ -90,12 +124,14 @@ async function renderProject(req, res) {
     let frequency = "";
     let teamCount = 0;
 
+    const parsed = parseNames(req.body.team_members);
+
     if (req.body.project_name) {
         projectName = req.body.project_name;
         startDate = req.body.start_date;
         endDate = req.body.end_date;
         frequency = req.body.report_frequency;
-        teamCount = req.body.team_members.length;
+        teamCount = parsed.length;
     }
 
     const teamMembers = await db.getSpecificUsers("user");

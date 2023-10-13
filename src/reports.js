@@ -10,7 +10,6 @@ const db = require("./users.js");
 function parseNames(names) {
     if (typeof names === "string") {
         const nameParts = names.split(" ");
-        console.log(nameParts);
         return [
             {
                 firstname: nameParts[0],
