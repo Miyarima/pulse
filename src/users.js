@@ -70,7 +70,8 @@ function getReports(employeeId) {
         .from("reports")
         .join("projects", "reports.project_id", "projects.id")
         .join("users", "reports.employee_id", "users.employeeid")
-        .where("employee_id", employeeId);
+        .where("employee_id", employeeId)
+        .orderBy("report_date", "asc");
 }
 
 function getAllReports() {
