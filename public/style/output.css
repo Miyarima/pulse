@@ -630,6 +630,22 @@ video {
   margin-top: auto;
 }
 
+.mt-16 {
+  margin-top: 4rem;
+}
+
+.mt-40 {
+  margin-top: 10rem;
+}
+
+.mb-32 {
+  margin-bottom: 8rem;
+}
+
+.mb-24 {
+  margin-bottom: 6rem;
+}
+
 .block {
   display: block;
 }
@@ -788,6 +804,10 @@ video {
 
 .self-center {
   align-self: center;
+}
+
+.overflow-auto {
+  overflow: auto;
 }
 
 .overflow-scroll {
@@ -1212,6 +1232,10 @@ video {
 
 .hover\:cursor-pointer:hover {
   cursor: pointer;
+}
+
+.hover\:overflow-y-scroll:hover {
+  overflow-y: scroll;
 }
 
 .hover\:bg-sky-100:hover {
