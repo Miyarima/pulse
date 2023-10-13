@@ -88,7 +88,7 @@ function getAllReports() {
         .from("reports")
         .join("users", "reports.employee_id", "users.employeeid")
         .join("projects", "reports.project_id", "projects.id")
-        .orderBy("report_date", "asc");
+        .orderBy("report_updated", "desc");
 }
 
 function getReportText(reportId) {
