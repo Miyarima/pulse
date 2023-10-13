@@ -102,29 +102,23 @@ const formatAllReports = (reports) => {
         day: "numeric",
     };
 
-    const today = new Date();
-    today.setDate(today.getDate() + 1);
+    // const today = new Date();
+    // today.setDate(today.getDate() + 1);
 
     reports.map((e) => {
-        const reportDate = new Date(e.report_date);
-        if (today > reportDate) {
-            fixedReports.push({
-                project_name: e.project_name,
-                name: `${e.firstname} ${e.lastname}`,
-                report_id: e.report_id,
-                report_text: e.report_text,
-                report_date: new Date(e.report_date).toLocaleDateString(
-                    "sv-SE",
-                    options,
-                ),
-                turned_in: removeTimeFromDate(e.report_updated),
-                report_status: allReportsStatus(
-                    e.report_date,
-                    e.report_updated,
-                ),
-                report_marked: e.report_marked,
-            });
-        }
+        fixedReports.push({
+            project_name: e.project_name,
+            name: `${e.firstname} ${e.lastname}`,
+            report_id: e.report_id,
+            report_text: e.report_text,
+            report_date: new Date(e.report_date).toLocaleDateString(
+                "sv-SE",
+                options,
+            ),
+            turned_in: removeTimeFromDate(e.report_updated),
+            report_status: allReportsStatus(e.report_date, e.report_updated),
+            report_marked: e.report_marked,
+        });
     });
 
     return fixedReports;
