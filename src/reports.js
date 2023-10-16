@@ -77,8 +77,23 @@ function generateReportDates(startDate, endDate, frequency) {
     let currentDate = new Date(startDate);
     const end = new Date(endDate);
 
+    console.log(frequency);
+
     while (currentDate.getTime() <= end.getTime()) {
-        dateList.push(new Date(currentDate));
+        if (
+            frequency === "daily" &&
+            currentDate.getDay() !== 0 &&
+            currentDate.getDay() !== 6
+        ) {
+            dateList.push(new Date(currentDate));
+        } else if (
+            frequency === "weekly" ||
+            frequency === "monthly" ||
+            frequency === "fortnightly"
+        ) {
+            dateList.push(new Date(currentDate));
+        }
+
         if (frequency === "daily") {
             currentDate.setDate(currentDate.getDate() + 1);
         } else if (frequency === "weekly") {

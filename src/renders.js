@@ -123,15 +123,18 @@ async function renderProject(req, res) {
     let endDate = "";
     let frequency = "";
     let teamCount = 0;
+    let parsed;
 
-    const parsed = parseNames(req.body.team_members);
+    if (req.body.team_members) {
+        parsed = parseNames(req.body.team_members).length;
+    }
 
     if (req.body.project_name) {
         projectName = req.body.project_name;
         startDate = req.body.start_date;
         endDate = req.body.end_date;
         frequency = req.body.report_frequency;
-        teamCount = parsed.length;
+        teamCount = parsed;
     }
 
     const teamMembers = await db.getSpecificUsers("user");
