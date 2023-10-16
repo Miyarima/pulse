@@ -16,11 +16,11 @@
     </div>
     <div class="mb-4 grid gap-4 rounded-lg">
         <h2 class="px-4 font-sans text-xl font-semibold text-gray-600">To do</h2>
-        <div class="grid h-10 grid-cols-4 items-center gap-4 text-gray-500 capitalize border-b-2 border-gray-200 pb-6">
-            <p class="px-4 text-2xl">#</p>
-            <p class="px-4 text-2xl">project</p>
-            <p class="px-4 text-2xl">due</p>
-            <p class="px-4 text-2xl">status</p>
+        <div class="grid h-10 sm:grid-cols-4 grid-cols-3 items-center gap-4 text-gray-500 capitalize border-b-2 border-gray-200 pb-6">
+            <p class="sm:px-4 sm:text-2xl hidden sm:block text-base px-1">#</p>
+            <p class="sm:px-4 sm:text-2xl text-base px-1">project</p>
+            <p class="sm:px-4 sm:text-2xl text-base px-1">due</p>
+            <p class="sm:px-4 sm:text-2xl text-base px-1">status</p>
         </div>
         <div class="max-h-96 overflow-y-scroll grid gap-4 py-4">
         <% let counter = 0; %>
@@ -33,43 +33,43 @@
             >
                 <% if (reports[i].report_text !== "nothing added") { %>
                     <div
-                        class="grid h-14 grid-cols-4 items-center gap-4"
+                        class="grid h-14 sm:grid-cols-4 grid-cols-3 items-center gap-4"
                     >
                 <% } else if (reports[i].report_status === "late") { %>
                     <div
-                        class="grid h-14 grid-cols-4 items-center gap-4 rounded border-l-4 border-red-400"
+                        class="grid h-14 sm:grid-cols-4 grid-cols-3 items-center gap-4 rounded border-l-4 border-red-400"
                     >
                 <% } else if (reports[i].report_status === "today") { %>
                     <div
-                        class="grid h-14 grid-cols-4 items-center gap-4 rounded border-l-4 border-yellow-400"
+                        class="grid h-14 sm:grid-cols-4 grid-cols-3 items-center gap-4 rounded border-l-4 border-yellow-400"
                     >
                 <% } else { %>
                     <div
-                        class="grid h-14 grid-cols-4 items-center gap-4 rounded border-l-4 border-green-400"
+                        class="grid h-14 sm:grid-cols-4 grid-cols-3 items-center gap-4 rounded border-l-4 border-green-400"
                     >
                 <% }; %>
-                        <p class="px-4 text-xl"><%= counter %></p>
-                        <p class="px-4 text-xl">
+                        <p class="sm:px-4 sm:text-xl hidden sm:block text-sm px-1"><%= counter %></p>
+                        <p class="sm:px-4 sm:text-xl text-sm px-1">
                             <%= reports[i].project_name %>
                         </p>
-                        <p class="px-4 text-xl">
+                        <p class="sm:px-4 sm:text-xl text-sm px-1">
                             <%= reports[i].report_date %>
                         </p>
                         <% if (reports[i].report_status === "late") { %>
                             <p
-                                class="px-4 text-xl bg-red-300 text-gray-700 w-fit rounded-xl"
+                                class="sm:px-4 sm:text-xl text-sm px-1 bg-red-300 text-gray-700 w-fit rounded-xl"
                             >
                             incomplete
                             </p>
                         <% } else if (reports[i].report_status === "today") { %>
                             <p
-                                class="px-4 text-xl bg-yellow-300 text-gray-700 w-fit rounded-xl"
+                                class="sm:px-4 sm:text-xl text-sm px-1 bg-yellow-300 text-gray-700 w-fit rounded-xl"
                             >
                             incomplete
                             </p>
                         <% } else { %>
                             <p
-                                class="px-4 text-xl bg-lime-300 text-gray-700 w-fit rounded-xl"
+                                class="sm:px-4 sm:text-xl text-sm px-1 bg-lime-300 text-gray-700 w-fit rounded-xl"
                             >
                             incomplete
                             </p>
@@ -82,11 +82,11 @@
         </div>
         <div class="grid gap-4 rounded-lg my-20 mb-24">
         <h2 class="px-4 font-sans text-xl font-semibold text-gray-600">Sent</h2>
-        <div class="grid h-10 grid-cols-4 items-center gap-4 text-gray-500 capitalize border-b-2 border-gray-200 pb-6">
-            <p class="px-4 text-2xl">#</p>
-            <p class="px-4 text-2xl">project</p>
-            <p class="px-4 text-2xl">due</p>
-            <p class="px-4 text-2xl">status</p>
+        <div class="grid h-10 sm:sm:grid-cols-4 grid-cols-3 items-center gap-4 text-gray-500 capitalize border-b-2 border-gray-200 pb-6">
+            <p class="sm:px-4 sm:text-2xl hidden sm:block text-base px-1">#</p>
+            <p class="sm:px-4 sm:text-2xl text-base px-1">project</p>
+            <p class="sm:px-4 sm:text-2xl text-base px-1">due</p>
+            <p class="sm:px-4 sm:text-2xl text-base px-1">status</p>
         </div>
         <div class="max-h-96 overflow-y-scroll grid gap-4 py-4">
         <% let done = 0; %>
@@ -95,16 +95,16 @@
                 <% done++; %>
                 <a class="bg-white capitalize text-gray-800 opacity-70 rounded">
                     <div
-                        class="grid h-14 grid-cols-4 items-center gap-4"
+                        class="grid h-14 sm:sm:grid-cols-4 grid-cols-3 items-center gap-4"
                     >
-                        <p class="px-4 text-xl"><%= done %></p>
-                        <p class="px-4 text-xl">
+                        <p class="sm:px-4 sm:text-xl text-sm px-1"><%= done %></p>
+                        <p class="sm:px-4 sm:text-xl text-sm px-1">
                             <%= reports[i].project_name %>
                         </p>
-                        <p class="px-4 text-xl">
+                        <p class="sm:px-4 sm:text-xl text-sm px-1">
                             <%= reports[i].report_date %>
                         </p>
-                        <p class="px-4 text-xl">
+                        <p class="sm:px-4 sm:text-xl text-sm px-1">
                             done
                         </p>
                     </div>
