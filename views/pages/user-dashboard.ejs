@@ -15,7 +15,7 @@
         </div>
     </div>
     <div class="mb-4 grid gap-4 rounded-lg">
-        <h2 class="px-4 font-sans text-xl font-semibold text-gray-600">To do</h2>
+        <h2 class="sm:px-4 px-1 font-sans text-xl font-semibold text-gray-600">To do</h2>
         <div class="grid h-10 sm:grid-cols-4 grid-cols-3 items-center gap-4 text-gray-500 capitalize border-b-2 border-gray-200 pb-6">
             <p class="sm:px-4 sm:text-2xl hidden sm:block text-base px-1">#</p>
             <p class="sm:px-4 sm:text-2xl text-base px-1">project</p>
@@ -81,7 +81,7 @@
         </div>
         </div>
         <div class="grid gap-4 rounded-lg my-20 mb-24">
-        <h2 class="px-4 font-sans text-xl font-semibold text-gray-600">Sent</h2>
+        <h2 class="sm:px-4 px-1 font-sans text-xl font-semibold text-gray-600">Sent</h2>
         <div class="grid h-10 sm:sm:grid-cols-4 grid-cols-3 items-center gap-4 text-gray-500 capitalize border-b-2 border-gray-200 pb-6">
             <p class="sm:px-4 sm:text-2xl hidden sm:block text-base px-1">#</p>
             <p class="sm:px-4 sm:text-2xl text-base px-1">project</p>
@@ -97,7 +97,7 @@
                     <div
                         class="grid h-14 sm:sm:grid-cols-4 grid-cols-3 items-center gap-4"
                     >
-                        <p class="sm:px-4 sm:text-xl text-sm px-1"><%= done %></p>
+                        <p class="sm:px-4 sm:text-xl hidden sm:block text-sm px-1"><%= done %></p>
                         <p class="sm:px-4 sm:text-xl text-sm px-1">
                             <%= reports[i].project_name %>
                         </p>
@@ -114,5 +114,7 @@
             </div>
         </div>
     </div>
+
+<script src="/src/menu.js"></script>
 
 <%- include("./../partials/footer.ejs") %>
