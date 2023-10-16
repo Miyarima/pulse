@@ -195,7 +195,30 @@ async function renderViewReport(req, res) {
         project_id: req.params.id,
         name: req.params.name,
         text: text[0].report_text,
+        comment: text[0].report_comment,
         read: req.query.read ? "yes" : "no",
+    });
+}
+
+/**
+ * Renders the view report page
+ * @param {object} req contains information
+ * @param {object} res where to render
+ */
+async function renderUsersViewReport(req, res) {
+    const text = await db.getReportText(req.params.id);
+
+    console.log(text[0].report_comment);
+
+    res.render("view-report-users.ejs", {
+        title: "Pulse | View report",
+        user: `${req.firstname} ${req.lastname}`,
+        project_name: req.params.project,
+        report_date: req.params.date,
+        project_id: req.params.id,
+        name: req.params.name,
+        text: text[0].report_text,
+        comment: text[0].report_comment,
     });
 }
 
@@ -208,4 +231,5 @@ module.exports = {
     renderSetup,
     renderEditReport,
     renderViewReport,
+    renderUsersViewReport,
 };

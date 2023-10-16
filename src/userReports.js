@@ -83,6 +83,7 @@ const formatReports = (reports) => {
                 options,
             ),
             report_status: status(e.report_date),
+            report_comment: e.report_comment,
         });
     });
 

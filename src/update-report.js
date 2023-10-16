@@ -28,12 +28,20 @@ const updateReportText = async (req) => {
  */
 const updateReportReadStatus = async (req) => {
     const reportId = req.params.id;
+    let comment = "";
+
+    console.log(req.body.report);
+
+    if (req.body.report) {
+        comment = req.body.report;
+    }
 
     const update = {
         report_marked: "yes",
+        report_comment: comment,
     };
 
-    db.updateUserReport(reportId, update)
+    db.addUserReportComment(reportId, update)
         .then((result) => {
             console.log("Report updated successfully:", result);
         })

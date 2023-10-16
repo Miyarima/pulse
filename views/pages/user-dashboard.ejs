@@ -93,7 +93,10 @@
         <% for (let i = 0; i < reports.length; i++) { %>
             <% if (reports[i].report_text !== "nothing added") { %>
                 <% done++; %>
-                <a class="bg-white capitalize text-gray-800 opacity-70 rounded">
+                <a 
+                class="bg-white capitalize text-gray-800 opacity-70 rounded"
+                href="/report/view/<%= reports[i].project_name %>/<%= reports[i].report_date %>/<%= reports[i].report_id %>"
+                >
                     <div
                         class="grid h-14 sm:sm:grid-cols-4 grid-cols-3 items-center gap-4"
                     >
@@ -104,9 +107,19 @@
                         <p class="sm:px-4 sm:text-xl text-sm px-1">
                             <%= reports[i].report_date %>
                         </p>
-                        <p class="sm:px-4 sm:text-xl text-sm px-1">
+                        <% if (reports[i].report_comment !== "" && reports[i].report_comment !== null) {%>
+                            <p
+                            class="sm:px-4 sm:text-xl text-sm px-1 bg-violet-200 text-gray-900 w-fit rounded-xl"
+                            >
+                            commented
+                            </p>
+                        <% } else { %>
+                            <p
+                            class="sm:px-4 sm:text-xl text-sm px-1"
+                            >
                             done
-                        </p>
+                            </p>
+                        <% }; %>
                     </div>
             <% }; %>
         <% }; %>

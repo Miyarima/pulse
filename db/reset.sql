@@ -36,6 +36,7 @@ CREATE TABLE reports (
     report_date DATE NOT NULL,
     report_updated DATE,
     report_marked TEXT "no",
+    report_comment TEXT "",
     FOREIGN KEY (project_id) REFERENCES projects(id),
     FOREIGN KEY (employee_id) REFERENCES users(employeeid)
 );
@@ -44,16 +45,3 @@ CREATE TABLE reports (
 INSERT INTO users (firstname, lastname, employeeid, address, number, email, password, role, first)
 VALUES
     ('boss', 'man', 1, '789 Oak St', '555-111-2222', 'admin@example.com', '$2b$10$xA4HOn.hqQu2lY6uvMbjHuYO8bb6ESYBvizuwyHEquW/nQJFLJQLa', 'admin', '');
-
--- Insert sample data into the projects table
--- INSERT INTO projects (project_name, employeeid)
--- VALUES
---     ('Project A', 15),
---     ('Project B', 16);
-
--- Insert sample data into the reports table
--- INSERT INTO reports (project_id, employee_id, report_text, report_date)
--- VALUES
---     (1, 15, 'Report 1 for Project A', '2023-09-13'),
---     (1, 16, 'Report 2 for Project A', '2023-09-14'),
---     (2, 15, 'Report 1 for Project B', '2023-09-15');

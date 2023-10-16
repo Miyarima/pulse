@@ -66,6 +66,7 @@ function getReports(employeeId) {
             "projects.project_name",
             "reports.report_text",
             "reports.report_date",
+            "reports.report_comment",
         )
         .from("reports")
         .join("projects", "reports.project_id", "projects.id")
@@ -95,7 +96,7 @@ function getAllReports() {
 
 function getReportText(reportId) {
     return knex
-        .select("report_text")
+        .select("report_text", "report_comment")
         .from("reports")
         .join("users", "reports.employee_id", "users.employeeid")
         .join("projects", "reports.project_id", "projects.id")
@@ -118,6 +119,10 @@ function updateUserReport(reportId, update) {
     return knex("reports").where("id", reportId).update(update);
 }
 
+function addUserReportComment(reportId, comment) {
+    return knex("reports").where("id", reportId).update(comment);
+}
+
 module.exports = {
     getAllUsers,
     getUser,
@@ -133,4 +138,5 @@ module.exports = {
     updateUserReport,
     getAllReports,
     getReportText,
+    addUserReportComment,
 };

@@ -82,8 +82,16 @@ router.post(
 );
 
 router.get(
+    "/report/view/:project/:date/:id",
+    cookieJwtAuth("user"),
+    (req, res) => {
+        rend.renderUsersViewReport(req, res);
+    },
+);
+
+router.get(
     "/report/view/:project/:date/:name/:id",
-    cookieJwtAuth(["admin", "user"]),
+    cookieJwtAuth(["admin"]),
     (req, res) => {
         rend.renderViewReport(req, res);
     },
