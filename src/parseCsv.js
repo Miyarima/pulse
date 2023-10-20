@@ -15,6 +15,7 @@ const rand = require("crypto");
  */
 const addUsersToDb = async (users) => {
     let inserts = [];
+    let mailToSend = [];
     for (const e of users) {
         const password = rand.randomBytes(64).toString("hex");
         const hash = await bcrypt.hash(password, 10);
@@ -43,9 +44,7 @@ const addUsersToDb = async (users) => {
                     console.error("Error inserting user:", error);
                 });
 
-            if (e.email === "jogo19@student.bth.se") {
-                mail(e.email, string);
-            }
+            mailToSend.push([e.email, string]);
 
             inserts.push({
                 firstname: e.firstname,
@@ -54,6 +53,8 @@ const addUsersToDb = async (users) => {
             });
         }
     }
+
+    mail(mailToSend);
 
     return inserts;
 };
