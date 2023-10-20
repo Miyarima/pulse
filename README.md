@@ -9,11 +9,13 @@ Open a terminal and move to a folder where you would like to store the cloned re
 
 First run `npm install` to install all dependencies.
 
+Lastly, type `npm run start` to start the server, and you'll be able to reach it on `http://localhost:1337`.
+
+## Format
+
 The CSV file should be in this format:
 
 ```
 firstname,lastname,employeeid,address,number,email,role
 jonathan,göransson,56,moon,555-555-666,jogo19@student.bth.se,user
 ```
-
-Lastly, type `npm run start` to start the server, and you'll be able to reach it on `http://localhost:1337`.
