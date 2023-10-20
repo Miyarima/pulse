@@ -9,6 +9,7 @@ Open a terminal and move to a folder where you would like to store the cloned re
 
 First run `npm install` to install all dependencies.
 
-I have provided the database in the repo, so run the command `sqlite3 pulse.sqlite3 < db/reset.sql` to make sure everything is as it should.
+The CSV file should be in this format:
+`firstname,lastname,employeeid,address,number,email,role \njonathan,göransson,56,moon,555-555-666,jogo19@student.bth.se,user`
 
 Lastly, type `npm run start` to start the server, and you'll be able to reach it on `http://localhost:1337`.
