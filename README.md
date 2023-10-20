@@ -26,7 +26,7 @@ npm install
 ### Start the Server
 
 ```bash
-`npm run start
+npm run start
 ```
 <br>
 The server will be accessible at http://localhost:1337.
