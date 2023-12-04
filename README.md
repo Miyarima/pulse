@@ -1,4 +1,6 @@
 # Pulse
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FMiyarima%2Fpulse.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FMiyarima%2Fpulse?ref=badge_shield)
+
 
 A simple tool for project managers to handle reports from different projects. You can simply upload users using a CSV file, and then an email will be sent to each respective user with a link for them to set up their account.
 You can create projects with a start and end date, set the frequency of reports, and assign specific users to each or multiple projects. Project managers have a dashboard where they can view all reports that have been sent in, and so do team members, but they see which reports they need to do and when the due date is on those reports.
@@ -40,3 +42,7 @@ firstname,lastname,employeeid,address,number,email,role
 john,doe,56,moon,555-555-666,test@email.com.se,user
 ...
 ```
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FMiyarima%2Fpulse.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FMiyarima%2Fpulse?ref=badge_large)
