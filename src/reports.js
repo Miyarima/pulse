@@ -18,7 +18,7 @@ function parseNames(names) {
         ];
     }
 
-    const nameList = [];
+    const nameList1 = [];
 
     for (const fullName of names) {
         const nameParts = fullName.split(" ");
@@ -29,11 +29,11 @@ function parseNames(names) {
                 lastname: nameParts.slice(1).join(" "),
             };
 
-            nameList.push(nameObject);
+            nameList1.push(nameObject);
         }
     }
 
-    return nameList;
+    return nameList1;
 }
 
 /**
